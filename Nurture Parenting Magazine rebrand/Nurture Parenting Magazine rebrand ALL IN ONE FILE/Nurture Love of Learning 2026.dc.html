@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdfbf7;--espresso:#3a2d28;--clay:rgba(215,203,194,.35);--rose:#cbb1a5;--muted:rgba(58,45,40,.6);--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--espresso);text-decoration:none}
+a:hover{color:#8c6f61}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.ph{background:linear-gradient(160deg,#efe7e0,#e4d9d1 60%,#d9ccc3);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ph b{font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(58,45,40,.42);padding:14px 16px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to bottom,rgba(253,251,247,0),var(--ivory));pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(203,177,165,.42),rgba(203,177,165,0) 70%);pointer-events:none;filter:blur(4px)}
+.glass{background:rgba(253,251,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--clay);border-radius:20px;box-shadow:0 10px 30px rgba(45,36,32,.05),inset 0 1px 0 rgba(255,255,255,.6)}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:17px 32px;border:0;border-radius:40px;cursor:pointer;box-shadow:0 4px 20px rgba(203,177,165,.28);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.cta:hover{background:var(--espresso);color:var(--ivory);box-shadow:0 8px 28px rgba(203,177,165,.34);transform:translateY(-2px)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(58,45,40,.22);border-radius:40px;cursor:pointer;transition:border-color .35s,background .35s,transform .35s}
+.ghost:hover{border-color:var(--rose);background:rgba(203,177,165,.09);transform:translateY(-2px)}
+nav a{white-space:nowrap}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 20px}
+.lead{font-size:18px;line-height:1.75;color:var(--muted);margin:0}
+.sec{padding:118px 72px;max-width:1180px;margin:0 auto}
+.hr{height:1px;background:var(--clay);border:0;margin:0;max-width:1180px}
+.card-lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,36,32,.09)}
+.av{border-radius:50%;flex:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow:hidden">
+
+  <nav style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:26px 72px;max-width:1180px;margin:0 auto">
+    <a href="Nurture Home 2026.dc.html" style="font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em">Nurture<span style="color:var(--rose)">.</span></a>
+    <div style="display:flex;gap:30px;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">
+      <a href="Nurture Subscribe 2026.dc.html">Subscribe</a><a href="Nurture Blog 2026.dc.html">Read</a><a href="Nurture Showcase 2026.dc.html" style="color:#8c6f61">Showcase</a><a href="Nurture Advertise 2026.dc.html">Advertise</a><a href="Nurture Shop 2026.dc.html">Shop</a>
+    </div>
+    <button type="button" class="cta" style="padding:14px 26px">Subscribe</button>
+  </nav>
+
+  <div style="border-top:1px solid var(--clay);border-bottom:1px solid var(--clay);position:relative;z-index:4">
+    <div style="max-width:1180px;margin:0 auto;padding:0 72px;overflow-x:auto">
+      <div style="display:flex;gap:34px;white-space:nowrap;padding:16px 0;font:500 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase">
+        <a href="Nurture Changemakers 2026.dc.html" style="color:var(--muted)">Changemakers</a>
+        <a href="Nurture Self Love 2026.dc.html" style="color:var(--muted)">Self Love</a>
+        <a href="Nurture Love of Learning 2026.dc.html" style="color:#8c6f61;border-bottom:1px solid var(--rose);padding-bottom:5px">Love of Learning</a>
+        <a href="Nurture Australian Made 2026.dc.html" style="color:var(--muted)">Australian Made</a>
+        <a href="Nurture The Essentials 2026.dc.html" style="color:var(--muted)">The Essentials</a>
+        <a href="Nurture Tested on Humans 2026.dc.html" style="color:var(--muted)">Tested on Humans</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="glow" style="top:-250px;right:-190px;width:740px;height:740px"></div>
+
+  <section style="position:relative;padding:70px 72px 0;max-width:1180px;margin:0 auto;text-align:center">
+    <span class="k">Love of Learning · birth to the early years</span>
+    <h1 style="font-size:clamp(46px,5.2vw,70px);max-width:19ch;margin:0 auto">Childhood is not a race to be won early.</h1>
+    <p class="lead" style="max-width:54ch;margin:26px auto 0">Play-based early years, home education, and the case for doing considerably less before five. Evidence, not ideology.</p>
+  </section>
+
+  <div style="position:relative;margin-top:52px;height:460px">
+    <div class="ph" style="position:absolute;inset:0;height:100%"><b>photograph · child absorbed in outdoor play, 2400×880</b></div>
+    <div class="fade" style="height:64%"></div>
+  </div>
+
+  <section class="sec" style="padding-top:24px;padding-bottom:0">
+    <a href="#" class="glass card-lift" style="display:grid;grid-template-columns:1.15fr 1fr;gap:0;overflow:hidden">
+      <div class="ph" style="min-height:440px"><b>lead photograph · 1400×1200</b></div>
+      <div style="padding:60px 56px;display:flex;flex-direction:column;justify-content:center">
+        <span class="k" style="margin-bottom:14px">Cover feature</span>
+        <h2 style="font-size:clamp(28px,2.8vw,38px);max-width:18ch">Before the alphabet, the afternoon</h2>
+        <p style="font-size:16.5px;line-height:1.75;color:var(--muted);margin:20px 0 26px;max-width:44ch">Every year the pressure to start formal learning moves earlier, and every year the research says the opposite. What unhurried actually looks like on a Tuesday, in a real house, with real siblings.</p>
+        <p style="font:400 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Micarlé Callea · 16 min read</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="sec" style="padding-top:52px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px 34px">
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Play</span>
+        <h3 style="font-size:23px;max-width:20ch">Boredom is a curriculum</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">What a child builds in the twenty minutes after they say there is nothing to do.</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Home education</span>
+        <h3 style="font-size:23px;max-width:20ch">Starting without a plan</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">The first six months of home ed, and the four things worth buying.</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Literacy</span>
+        <h3 style="font-size:23px;max-width:20ch">Reading, when they are ready</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">The spread of normal is wider than school allows. Where the line actually is.</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Nature</span>
+        <h3 style="font-size:23px;max-width:20ch">The paddock as a classroom</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">Risk, weather and unsupervised distance — and why they matter developmentally.</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Screens</span>
+        <h3 style="font-size:23px;max-width:20ch">A household rule you can keep</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">Not zero, not endless. How families who are relaxed about it actually do it.</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Transitions</span>
+        <h3 style="font-size:23px;max-width:20ch">Starting school later</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 0">What holding a child back a year does, and does not, change by year six.</p>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:64px">
+      <a href="Nurture Blog 2026.dc.html" class="ghost">More from this hub</a>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 auto">
+
+  <section style="position:relative;padding:118px 0">
+    <div style="max-width:1180px;margin:0 auto;padding:0 72px">
+      <div class="glass" style="padding:70px 64px;text-align:center;position:relative;overflow:hidden">
+        <div class="glow" style="top:-150px;left:50%;margin-left:-220px;width:440px;height:440px"></div>
+        <span class="k" style="position:relative">In print</span>
+        <h2 style="font-size:clamp(30px,3vw,42px);max-width:22ch;margin:0 auto;position:relative">Issue 40 — Love of Learning</h2>
+        <p class="lead" style="max-width:48ch;margin:22px auto 0;position:relative">Eighty pages on unhurried childhoods, home education and play. Still in stock.</p>
+        <div style="display:flex;gap:16px;justify-content:center;margin-top:34px;position:relative">
+          <a href="Nurture Contact 2026.dc.html" class="cta">Buy issue 40</a>
+          <a href="Nurture Shop 2026.dc.html" class="ghost">See all back issues</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <hr class="hr" style="margin:0 auto">
+
+  <section class="sec" style="padding-top:88px;padding-bottom:88px">
+    <div style="text-align:center;max-width:52ch;margin:0 auto 44px">
+      <span class="k">Keep shopping</span>
+      <h2 style="font-size:clamp(28px,2.8vw,38px)">Every other category, one tap away</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <a href="Nurture Changemakers 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">Changemakers</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">Back stories</p>
+      </a>
+      <a href="Nurture Self Love 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">Self Love</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">Only organic</p>
+      </a>
+      <a href="Nurture Australian Made 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">Australian Made</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">Buy local</p>
+      </a>
+      <a href="Nurture The Essentials 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">The Essentials</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">Mama &amp; bubba</p>
+      </a>
+      <a href="Nurture Tested on Humans 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">Tested on Humans</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">Team picks</p>
+      </a>
+      <a href="Nurture Showcase 2026.dc.html" class="glass card-lift" style="padding:26px 24px;display:block">
+        <h3 style="font-size:19px">Showcase</h3>
+        <p style="font:500 10.5px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a98a7b;margin:9px 0 0">All packages</p>
+      </a>
+    </div>
+  </section>
+  <footer style="background:var(--espresso);color:rgba(253,251,247,.72);padding:76px 72px 44px">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px">
+      <div>
+        <span style="font-family:var(--serif);font-size:30px;color:var(--ivory)">Nurture<span style="color:var(--rose)">.</span></span>
+        <p style="font-size:13.5px;line-height:1.8;margin:14px 0 0;max-width:34ch">Nurture Parenting Magazine · PO Box 2292, Burleigh Post Shop QLD 4220 · ABN 15 617 938 013</p>
+      </div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Hubs</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Changemakers 2026.dc.html" style="color:rgba(253,251,247,.74)">Changemakers</a><a href="Nurture Self Love 2026.dc.html" style="color:rgba(253,251,247,.74)">Self Love</a><a href="Nurture Love of Learning 2026.dc.html" style="color:rgba(253,251,247,.74)">Love of Learning</a><a href="Nurture Showcase 2026.dc.html" style="color:rgba(253,251,247,.74)">Showcase</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Shop</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Subscribe 2026.dc.html" style="color:rgba(253,251,247,.74)">Subscribe</a><a href="Nurture Shop 2026.dc.html" style="color:rgba(253,251,247,.74)">Single issues</a><a href="Nurture Blog 2026.dc.html" style="color:rgba(253,251,247,.74)">Blog</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Nurture</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Advertise 2026.dc.html" style="color:rgba(253,251,247,.74)">Advertise</a><a href="Nurture Contact 2026.dc.html" style="color:rgba(253,251,247,.74)">Contact</a><a href="Nurture Our Story 2026.dc.html" style="color:rgba(253,251,247,.74)">Our story</a></div></div>
+    </div>
+    <p style="max-width:1180px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(253,251,247,.12);font-size:12px;color:rgba(253,251,247,.4)">© 2012–2026 Nurture Global Pty Ltd. All rights reserved.</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

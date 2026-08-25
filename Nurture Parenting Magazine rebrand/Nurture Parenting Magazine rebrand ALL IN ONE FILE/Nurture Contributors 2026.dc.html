@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdfbf7;--espresso:#3a2d28;--clay:rgba(215,203,194,.35);--rose:#cbb1a5;--muted:rgba(58,45,40,.6);--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--espresso);text-decoration:none}
+a:hover{color:#8c6f61}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.ph{background:linear-gradient(160deg,#efe7e0,#e4d9d1 60%,#d9ccc3);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ph b{font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(58,45,40,.42);padding:14px 16px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to bottom,rgba(253,251,247,0),var(--ivory));pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(203,177,165,.42),rgba(203,177,165,0) 70%);pointer-events:none;filter:blur(4px)}
+.glass{background:rgba(253,251,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--clay);border-radius:20px;box-shadow:0 10px 30px rgba(45,36,32,.05),inset 0 1px 0 rgba(255,255,255,.6)}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:17px 32px;border:0;border-radius:40px;cursor:pointer;box-shadow:0 4px 20px rgba(203,177,165,.28);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.cta:hover{background:var(--espresso);color:var(--ivory);box-shadow:0 8px 28px rgba(203,177,165,.34);transform:translateY(-2px)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(58,45,40,.22);border-radius:40px;cursor:pointer;transition:border-color .35s,background .35s,transform .35s}
+.ghost:hover{border-color:var(--rose);background:rgba(203,177,165,.09);transform:translateY(-2px)}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 20px}
+.lead{font-size:18px;line-height:1.75;color:var(--muted);margin:0}
+.sec{padding:118px 72px;max-width:1180px;margin:0 auto}
+.hr{height:1px;background:var(--clay);border:0;margin:0;max-width:1180px}
+.card-lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,36,32,.09)}
+.av{border-radius:50%;flex:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow:hidden">
+
+  <nav style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:26px 72px;max-width:1180px;margin:0 auto">
+    <a href="Nurture Home 2026.dc.html" style="font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em">Nurture<span style="color:var(--rose)">.</span></a>
+    <div style="display:flex;gap:34px;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase">
+      <a href="Nurture Subscribe 2026.dc.html">Subscribe</a><a href="Nurture Blog 2026.dc.html">Read</a><a href="Nurture Contributors 2026.dc.html" style="color:#8c6f61">Contributors</a><a href="Nurture Advertise 2026.dc.html">Advertise</a><a href="Nurture Shop 2026.dc.html">Shop</a>
+    </div>
+    <button type="button" class="cta" style="padding:14px 26px">Subscribe</button>
+  </nav>
+
+  <div class="glow" style="top:-250px;left:-190px;width:720px;height:720px"></div>
+
+  <section style="position:relative;padding:70px 72px 0;max-width:1180px;margin:0 auto;text-align:center">
+    <span class="k">Contributors · practitioners, not personalities</span>
+    <h1 style="font-size:clamp(46px,5.2vw,70px);max-width:18ch;margin:0 auto">The people who write for Nurture</h1>
+    <p class="lead" style="max-width:54ch;margin:26px auto 0">Midwives, counsellors, educators and parents. Everyone here answers under their own name, and everything they publish is sourced.</p>
+  </section>
+
+  <div style="position:relative;margin-top:52px;height:440px">
+    <div class="ph" style="position:absolute;inset:0;height:100%"><b>photograph · practitioner at a kitchen table, 2400×880</b></div>
+    <div class="fade" style="height:64%"></div>
+  </div>
+
+  <section class="sec" style="padding-top:32px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px">
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Penny Chote</h3>
+        <span class="k" style="margin:9px 0 14px">Breastfeeding</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">Lactation educator behind the Thompson Method program. Writes on preparing to feed while you're still pregnant, and on what to do when the first week doesn't go to plan.</p>
+      </div>
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Andrea Fallon</h3>
+        <span class="k" style="margin:9px 0 14px">Infant sleep &amp; birth</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">Midwife and child health nurse, founder of Wholehearted Family Health. Covers rest, cycles and the fourth trimester. No sleep training, ever.</p>
+      </div>
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Crystal Hardstaff</h3>
+        <span class="k" style="margin:9px 0 14px">Perinatal mental health</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">Founder of The Gentle Counsellor. Trauma, attachment and matrescence — the year of becoming a mother that nobody photographs.</p>
+      </div>
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Stephanie Pinto</h3>
+        <span class="k" style="margin:9px 0 14px">Emotional intelligence</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">Parenting coach and childhood behavioural mentor. Writes about big feelings in small bodies, and about staying regulated when your child isn't.</p>
+      </div>
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Micarlé Callea</h3>
+        <span class="k" style="margin:9px 0 14px">Home education</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">The home-educating mind behind Fearless Homeschool. Play-based early years, unschooling, and the case for doing considerably less before five.</p>
+      </div>
+
+      <div class="glass card-lift" style="padding:40px 36px">
+        <div class="ph av" style="width:82px;height:82px;margin-bottom:22px"></div>
+        <h3 style="font-size:24px">Naomi Aldort</h3>
+        <span class="k" style="margin:9px 0 14px">Parent–child relationship</span>
+        <p style="font-size:15px;line-height:1.75;color:var(--muted);margin:0">Author of <em>Raising Our Children, Raising Ourselves</em>. Forty years on what attachment asks of a parent, and what it does not.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 auto">
+
+  <section class="sec">
+    <div style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:80px">
+      <div>
+        <span class="k">The standard</span>
+        <h2 style="font-size:clamp(32px,3.2vw,44px);max-width:13ch">What we ask of every contributor</h2>
+      </div>
+      <div style="display:grid">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:26px;padding:24px 0;border-bottom:1px solid var(--clay)">
+          <span style="font-family:var(--serif);font-size:22px;color:#a98a7b;font-variant-numeric:tabular-nums">01</span>
+          <span><strong style="font-weight:600;display:block;margin-bottom:6px;font-size:17px">Cite it or cut it</strong><span style="font-size:15.5px;line-height:1.75;color:var(--muted)">Every claim about a child's health carries a source. If the evidence is thin, we say so in the piece rather than around it.</span></span>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:26px;padding:24px 0;border-bottom:1px solid var(--clay)">
+          <span style="font-family:var(--serif);font-size:22px;color:#a98a7b;font-variant-numeric:tabular-nums">02</span>
+          <span><strong style="font-weight:600;display:block;margin-bottom:6px;font-size:17px">Declare the interest</strong><span style="font-size:15.5px;line-height:1.75;color:var(--muted)">If a contributor sells a product or program in their field, it's named at the top of the article, not buried at the bottom.</span></span>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:26px;padding:24px 0;border-bottom:1px solid var(--clay)">
+          <span style="font-family:var(--serif);font-size:22px;color:#a98a7b;font-variant-numeric:tabular-nums">03</span>
+          <span><strong style="font-weight:600;display:block;margin-bottom:6px;font-size:17px">No advertorial dressed as advice</strong><span style="font-size:15.5px;line-height:1.75;color:var(--muted)">Paid placements are labelled as such. A brand cannot buy an editorial page here, at any price.</span></span>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:26px;padding:24px 0">
+          <span style="font-family:var(--serif);font-size:22px;color:#a98a7b;font-variant-numeric:tabular-nums">04</span>
+          <span><strong style="font-weight:600;display:block;margin-bottom:6px;font-size:17px">Write to a parent, not at one</strong><span style="font-size:15.5px;line-height:1.75;color:var(--muted)">WHO and TGA compliant, and free of the shame that so much parenting writing runs on.</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:0 0 118px">
+    <div style="max-width:1180px;margin:0 auto;padding:0 72px">
+      <div class="glass" style="padding:70px 64px;text-align:center;position:relative;overflow:hidden">
+        <div class="glow" style="top:-150px;left:50%;margin-left:-220px;width:440px;height:440px"></div>
+        <span class="k" style="position:relative">Write for us</span>
+        <h2 style="font-size:clamp(30px,3vw,42px);max-width:22ch;margin:0 auto;position:relative">We commission two issues ahead</h2>
+        <p class="lead" style="max-width:48ch;margin:22px auto 0;position:relative">One paragraph on the idea, one on why you're the person to write it. That's the whole pitch.</p>
+        <div style="display:flex;gap:16px;justify-content:center;margin-top:34px;position:relative">
+          <a href="Nurture Contact 2026.dc.html" class="cta">Pitch a story</a>
+          <a href="Nurture Blog 2026.dc.html" class="ghost">Read what we publish</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--espresso);color:rgba(253,251,247,.72);padding:76px 72px 44px">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px">
+      <div>
+        <span style="font-family:var(--serif);font-size:30px;color:var(--ivory)">Nurture<span style="color:var(--rose)">.</span></span>
+        <p style="font-size:13.5px;line-height:1.8;margin:14px 0 0;max-width:34ch">Nurture Parenting Magazine · PO Box 2292, Burleigh Post Shop QLD 4220 · ABN 15 617 938 013</p>
+      </div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Read</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Blog 2026.dc.html" style="color:rgba(253,251,247,.74)">Blog</a><a href="Nurture Contributors 2026.dc.html" style="color:rgba(253,251,247,.74)">Contributors</a><a href="Nurture Shop 2026.dc.html" style="color:rgba(253,251,247,.74)">Back issues</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Shop</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Subscribe 2026.dc.html" style="color:rgba(253,251,247,.74)">Subscribe</a><a href="Nurture Shop 2026.dc.html" style="color:rgba(253,251,247,.74)">Single issues</a><a href="#" style="color:rgba(253,251,247,.74)">Directory</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Nurture</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Advertise 2026.dc.html" style="color:rgba(253,251,247,.74)">Advertise</a><a href="Nurture Contact 2026.dc.html" style="color:rgba(253,251,247,.74)">Contact</a><a href="Nurture Our Story 2026.dc.html" style="color:rgba(253,251,247,.74)">Our story</a></div></div>
+    </div>
+    <p style="max-width:1180px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(253,251,247,.12);font-size:12px;color:rgba(253,251,247,.4)">© 2012–2026 Nurture Global Pty Ltd. All rights reserved.</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

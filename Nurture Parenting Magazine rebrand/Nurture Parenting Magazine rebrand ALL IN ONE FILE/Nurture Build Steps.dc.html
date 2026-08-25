@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdfbf7;--espresso:#3a2d28;--clay:rgba(215,203,194,.35);--rose:#cbb1a5;--muted:rgba(58,45,40,.62);--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.65;text-wrap:pretty}
+a{color:#8c6f61}a:hover{color:var(--espresso)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 16px}
+.b{font-size:15.5px;line-height:1.7;color:var(--muted);margin:0}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:rgba(215,203,194,.28);padding:2px 6px;border-radius:4px}
+.phase{border-top:1px solid var(--clay);padding:52px 0}
+.step{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--clay);align-items:start}
+.num{font-family:var(--serif);font-size:22px;color:var(--rose);line-height:1.2}
+.step h3{font-size:19px;margin-bottom:8px}
+.path{display:block;font:500 11.5px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#a98a7b;margin-bottom:10px}
+.warn{background:rgba(203,177,165,.14);border:1px solid rgba(203,177,165,.4);border-radius:14px;padding:22px 26px;margin-top:22px}
+pre{background:#3a2d28;color:#f3ece6;border-radius:14px;padding:22px 24px;overflow-x:auto;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.7;margin:16px 0 0}
+</style>
+</helmet>
+<div style="max-width:80ch;margin:0 auto;padding:76px 48px 120px">
+
+  <span class="k">Nurture rebrand · build order</span>
+  <h1 style="font-size:46px">Do it in this order</h1>
+  <p class="b" style="margin-top:22px;max-width:64ch">Global settings first — every one of them changes the whole site at once, so fixing them before you touch a page means you don't rebuild anything twice. Then the Custom CSS clean-out. Then the homepage. Then pages, one at a time.</p>
+  <p class="b" style="margin-top:14px">Back up first: <span class="mono">Avada → Options → Import / Export → Export Options</span>. Save that file. If anything goes sideways you can paste it straight back.</p>
+
+  <section class="phase">
+    <span class="k">Phase one · about 30 minutes</span>
+    <h2 style="font-size:32px">Global Options</h2>
+    <p class="b" style="margin-top:14px">All of this is <span class="mono">Avada → Options</span>. Use the "Search for option(s)" box at the top — it's faster than hunting through the left panel. Hit <strong>Save Changes</strong> after each section.</p>
+
+    <div class="warn" style="margin-top:26px">
+      <p class="b" style="color:var(--espresso)"><strong>What you're building towards:</strong> <a href="Nurture Home 2026.dc.html">the homepage</a>, <a href="Nurture Our Story 2026.dc.html">Our Story</a>, <a href="Nurture Advertise 2026.dc.html">Advertise</a>. Open one in another tab and keep it beside you — every value below is taken from those pages, so when you finish phase one your site's type and buttons will already match them.</p>
+    </div>
+
+    <div class="step" style="margin-top:26px"><span class="num">0</span><div>
+      <span class="path">Avada → Options → Typography → Google Fonts</span>
+      <h3>Load the two typefaces first</h3>
+      <p class="b">Nothing else will look right until these are available. <span class="mono">Google Fonts Load Method</span> is already set to <strong>Local</strong>, which is correct — it keeps them fast and privacy-safe. In <span class="mono">Preload Fonts Variants</span> make sure <strong>400, 500, 600</strong> are ticked. Then, as you set each typography field below, choose <strong>Playfair Display</strong> or <strong>Inter</strong> from the font dropdown — Avada downloads and self-hosts them automatically the first time you save.</p>
+    </div></div>
+
+    <div class="step"><span class="num">1</span><div>
+      <span class="path">Typography → Typography Sets</span>
+      <h3>Turn off the shouting</h3>
+      <p class="b">You have five sets: Headings, Subheadings, Lead, Body, Small. Set <span class="mono">Text Transform</span> to <strong>None</strong> on <strong>Lead, Body and Small</strong>. Leave Subheadings as uppercase. This one change is the biggest single improvement on the site — right now your paragraphs and captions are set in capitals, which is why it reads like a flyer.</p>
+    </div></div>
+
+    <div class="step"><span class="num">2</span><div>
+      <span class="path">Typography → Typography Sets</span>
+      <h3>Settle on two typefaces</h3>
+      <p class="b">Headings → <strong>Playfair Display, 500</strong>. Subheadings, Lead, Body, Small → <strong>Inter</strong> (400 for body, 500 for subheadings). Delete Nunito and Montserrat wherever they appear. You're currently loading three sans families on every page load, which costs you speed for nothing.</p>
+    </div></div>
+
+    <div class="step"><span class="num">3</span><div>
+      <span class="path">Typography → H1 – H6</span>
+      <h3>Fix the heading colours and the H2 font</h3>
+      <p class="b"><strong>H1 colour</strong> is currently Colour 3 — clay taupe at 35% opacity, so your headings are nearly invisible. Change to <strong>Colour 2</strong> (Espresso Earth). <strong>H2 font family</strong> is currently <strong>Raleway Dots</strong> — a novelty dotted typeface, on every H2 on the site. Change to <strong>Playfair Display, 500</strong>, colour Colour 2. Set H3–H6 to Playfair Display, and turn <span class="mono">Text Transform</span> to <strong>None</strong> on all six.</p>
+    </div></div>
+
+    <div class="step"><span class="num">4</span><div>
+      <span class="path">Elements → Buttons</span>
+      <h3>Make the buttons rose gold, properly</h3>
+      <p class="b">This is the green you've been fighting. Set:</p>
+      <p class="b" style="margin-top:10px">Gradient Top Colour → <span class="mono">#CBB1A5</span><br>Gradient Bottom Colour → <span class="mono">#CBB1A5</span> (same value = flat, no gradient)<br>Accent (text) Colour → <span class="mono">#3A2D28</span><br>Border Colour → transparent, Border Width → <span class="mono">0</span><br>Border Radius → <span class="mono">40px</span> all corners<br>Hover: background <span class="mono">#3A2D28</span>, text <span class="mono">#FDFBF7</span><br>Typography → Inter, 500, 13px, letter-spacing <span class="mono">.09em</span>, uppercase</p>
+    </div></div>
+
+    <div class="step"><span class="num">5</span><div>
+      <span class="path">Layout → Link Colours</span>
+      <h3>Give links a hover state</h3>
+      <p class="b">Link colour and link hover colour are currently identical, so nothing happens on hover. Link → <span class="mono">#8C6F61</span>, hover → <span class="mono">#3A2D28</span>.</p>
+    </div></div>
+
+    <div class="step"><span class="num">6</span><div>
+      <span class="path">Menu → Main Menu</span>
+      <h3>Bring the nav down to a nav size</h3>
+      <p class="b">Currently Playfair Display at <strong>26px</strong> — a headline size for a menu item. Change to <strong>Inter, 500, 14px</strong>, letter-spacing <span class="mono">.14em</span>, uppercase. Colour Colour 2, hover Colour 4.</p>
+    </div></div>
+
+    <div class="step"><span class="num">7</span><div>
+      <span class="path">Background</span>
+      <h3>Turn the background pattern off</h3>
+      <p class="b">Background Pattern → <strong>Off</strong>. Background Colour → <strong>Colour 1</strong> (Porcelain Ivory), not Colour 3. Content Background → <span class="mono">#FDFBF7</span>, not pure white — pure white next to ivory reads as a mistake.</p>
+    </div></div>
+
+    <div class="step"><span class="num">8</span><div>
+      <span class="path">WooCommerce → Product Badges</span>
+      <h3>Repair the sale badge</h3>
+      <p class="b">Sale Badge Text Colour is <span class="mono">var(--awb-color1)fff</span> — the trailing <span class="mono">fff</span> makes it invalid, so the text has no colour. Set it to <strong>Colour 1</strong>. While you're there: the "Sale!" badge text is doing you no favours on a premium magazine — change the text to the price or remove it.</p>
+    </div></div>
+
+    <div class="step"><span class="num">9</span><div>
+      <span class="path">Page Title Bar</span>
+      <h3>Kill the 600px header block</h3>
+      <p class="b">Page Title Bar height is <strong>600px</strong> with a parallax background image on every page — that's a full screen of decoration before any content. Set <strong>Page Title Bar → Hide</strong> globally, and build each page's own opening section instead. This is also what removes those repeated header curves.</p>
+    </div></div>
+  </section>
+
+  <section class="phase">
+    <span class="k">Phase two · about 15 minutes</span>
+    <h2 style="font-size:32px">Clean out the Custom CSS</h2>
+    <p class="b" style="margin-top:14px">Once phase one is done, most of your Custom CSS is fighting settings that are now correct — and every <span class="mono">!important</span> you leave in place will block you from changing anything through the interface later.</p>
+
+    <div class="step" style="margin-top:26px"><span class="num">10</span><div>
+      <span class="path">Avada → Options → Custom CSS</span>
+      <h3>Delete sections 1, 2 and 4</h3>
+      <p class="b">The global typography reset, the rose gold button override and the form field block are all now handled in Global Options. Delete them. Keep only the glass card and the soft border rule — replace the whole block with this:</p>
+      <pre>/* Nurture — glass surfaces, soft borders, motion */
+
+.nurture-glass{
+  background: rgba(253,251,247,.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(215,203,194,.35);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(45,36,32,.05),
+              inset 0 1px 0 rgba(255,255,255,.6);
+  transition: transform .5s cubic-bezier(.2,.7,.2,1),
+              box-shadow .5s;
+}
+.nurture-glass:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(45,36,32,.09);
+}
+
+/* soft borders instead of harsh dark ones */
+.fusion-container,.fusion-column,
+.fusion-layout-column,.fusion-builder-row{
+  border-color: rgba(215,203,194,.35) !important;
+}
+
+/* image fading into the page — the section-divider replacement */
+.nurture-fade{ position: relative; }
+.nurture-fade::after{
+  content: ""; position: absolute; inset: auto 0 0 0;
+  height: 55%; pointer-events: none;
+  background: linear-gradient(to bottom,
+              rgba(253,251,247,0), #fdfbf7);
+}
+
+/* rose gold glow — one per screen, never more */
+.nurture-glow{
+  position: absolute; border-radius: 50%;
+  pointer-events: none; filter: blur(4px);
+  background: radial-gradient(circle,
+              rgba(203,177,165,.42),
+              rgba(203,177,165,0) 70%);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nurture-glass{ transition: none; }
+  .nurture-glass:hover{ transform: none; }
+}</pre>
+    </div></div>
+
+    <div class="step"><span class="num">11</span><div>
+      <span class="path">Avada Live Builder, every page</span>
+      <h3>Remove the curved section separators</h3>
+      <p class="b">In each container's settings, find the <strong>Separator</strong> / <strong>Section Separator</strong> element and delete it. Those curved dividers between sections are the single most dated thing on the site — they're a 2016 look. Nothing replaces them: the image-to-ivory fade in step 12 does that job, and elsewhere generous whitespace and a single hairline is enough.</p>
+    </div></div>
+  </section>
+
+  <section class="phase">
+    <span class="k">Phase three · the homepage</span>
+    <h2 style="font-size:32px">Rebuild the sections</h2>
+    <p class="b" style="margin-top:14px">Reference: <a href="Nurture Home 2026.dc.html">the new homepage</a>. Copy: <a href="Nurture Rebrand Handbook.dc.html">the handbook, part two</a>. Work top to bottom; publish as you go.</p>
+
+    <div class="step" style="margin-top:26px"><span class="num">12</span><div>
+      <h3>The image-to-gradient treatment</h3>
+      <p class="b">This is the pattern that replaces every curve on the site, and it's what makes it read as expensive. For each full-width photograph:</p>
+      <p class="b" style="margin-top:10px">Container → 100% width, no padding. Add the CSS class <span class="mono">nurture-fade</span> in the container's <strong>Extra → CSS Class</strong> field. Background image set to <strong>Cover</strong>, height <strong>520–620px</strong>. The <span class="mono">::after</span> rule from step 10 fades the bottom half of the photo into the page background, so the image dissolves into ivory rather than stopping at a hard edge or a curve.</p>
+      <p class="b" style="margin-top:10px">Put the section heading in that fade — bottom-aligned, centred, sitting on the ivory. Use it three times down the homepage: hero, blog, gift guides. Not more.</p>
+    </div></div>
+
+    <div class="step"><span class="num">13</span><div>
+      <h3>Section order</h3>
+      <p class="b">Hero (headline, one line, two buttons, then the fading photograph) → credentials strip → current issue with the three price cards → Print / Post / Planted → blog → mentors → gift guides → advertisers → Ask Nara and the newsletter, side by side → footer.</p>
+      <p class="b" style="margin-top:10px">Deleted on purpose: the long "What's the buzz" introduction, the three pillars, and the stats counters. The pillar copy is rewritten in the handbook — use it on Our Story.</p>
+    </div></div>
+
+    <div class="step"><span class="num">14</span><div>
+      <h3>The rose gold rule</h3>
+      <p class="b">Rose gold is for buttons, focus rings, the full stop in the logo, and one soft glow per screen. It never becomes a background for a large block, and never a heading colour. The moment it's everywhere it stops reading as premium — that restraint is the whole difference between this and the current site.</p>
+    </div></div>
+
+    <div class="step"><span class="num">15</span><div>
+      <h3>The 3D cover shelf</h3>
+      <p class="b">Optional, and the one genuinely novel piece. Three covers overlapping, each rotated slightly further and pushed further back, parting on hover. It needs <span class="mono">perspective: 1600px</span> on the outer container <em>and</em> <span class="mono">transform-style: preserve-3d</span> on every wrapper between it and the covers, or the depth silently flattens. Working code is in <a href="Nurture Homepage 1c.dc.html">direction 1c</a> — your developer can lift it as-is into a Code Block element.</p>
+    </div></div>
+  </section>
+
+  <section class="phase">
+    <span class="k">Phase four · pages</span>
+    <h2 style="font-size:32px">Then the other pages</h2>
+    <p class="b" style="margin-top:14px">I have all 30 published pages from your export, so I can rewrite any of them on request. Suggested order — money pages first, then the editorial hubs:</p>
+    <p class="b" style="margin-top:16px"><strong>Done:</strong> Home, Subscribe.<br><strong>Next:</strong> Advertise → Our Story → Shop → Contributors → Blog.<br><strong>Then:</strong> Changemakers, Self Love, Love of Learning, Showcase, Australian Made, Mama &amp; Bubba Essentials, Services, Contact.</p>
+    <div class="warn">
+      <p class="b" style="color:var(--espresso)"><strong>Two questions before I keep going.</strong> Your export has five long internal documents — Sales, Next Steps, Getting Started Sales Guide, Creative Brief, Booking, about 21,000 words together. Are those public pages advertisers see, or your own internal collateral? And do you want the 43 blog post titles rewritten too? Most are currently in full capitals, which is a quick, visible win.</p>
+    </div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>
