@@ -99,6 +99,7 @@ PARTS.append(one_col_container(trust_html, hundred_percent="no", padding_top="18
 
 # 4. COVERS + PRICING
 covers_html = """
+<div id="issue" style="position:relative;top:-90px"></div>
 <div style="position:relative;height:480px">
   <div class="n-cover" style="position:absolute;left:32%;top:9%;width:44%;transform:rotate(3deg)"><div class="n-ph" style="aspect-ratio:1093/1400"><b>issue 40</b></div></div>
   <div class="n-cover" style="position:absolute;left:20%;top:4%;width:47%;transform:rotate(1deg)"><div class="n-ph" style="aspect-ratio:1093/1400"><b>issue 41</b></div></div>
@@ -136,6 +137,7 @@ PARTS.append(one_col_container(footprint_html, hundred_percent="no", padding_top
 
 # 6. BLOG
 blog_banner_html = f"""
+<div id="read" style="position:relative;top:-90px"></div>
 <div style="position:relative;height:520px;background-image:url('{BLOG_IMG}');background-size:cover;background-position:center;display:flex;align-items:flex-end;justify-content:center;padding-bottom:40px;text-align:center">
   <div>
     <span class="n-k">Free to read</span>
@@ -174,6 +176,7 @@ mentor_cards = "".join(
     </div>""" for name, role, blurb in mentors
 )
 mentors_html = f"""
+<div id="mentors" style="position:relative;top:-90px"></div>
 <div style="text-align:center;max-width:54ch;margin:0 auto">
   <span class="n-k">Weekly live Q&amp;As</span>
   <h2 class="n-h2" style="font-size:34px">Ask a practitioner, not a forum</h2>
@@ -207,6 +210,7 @@ PARTS.append('[fusion_builder_container hundred_percent="no" padding_top="10px" 
 
 # 9. BRANDS
 brands_left_html = """
+<div id="brands" style="position:relative;top:-90px"></div>
 <span class="n-k">For brands</span>
 <h2 class="n-h2" style="font-size:34px">A page here is a page kept</h2>
 <p class="n-lead" style="margin-top:16px;max-width:44ch;font-weight:300;font-size:18px">A magazine parents keep, three digital gift guides a year, and a directory they search on purpose. We take a small number of partners per issue.</p>
@@ -228,11 +232,10 @@ letter_html = """
 <span class="n-k">The letter</span>
 <h3 class="n-h3" style="font-size:28px">The gift guide, before it goes public</h3>
 <p class="n-lead" style="font-size:15.5px;margin-top:12px;max-width:40ch">Six emails a year: what&#8217;s in the next issue, and first look at the guides.</p>
-<div style="display:flex;gap:12px;margin-top:20px;max-width:440px;flex-wrap:wrap">
-  <input type="email" class="n-input" placeholder="you@example.com" aria-label="Email address" />
-  <button type="submit" class="n-cta" style="padding:15px 24px;border:0">Join</button>
+<div style="margin-top:20px;max-width:440px">
+  <script async data-uid="550bb75106" src="https://the-nurture-parenting-magazine-hive.kit.com/550bb75106/index.js"></script>
 </div>
-<p style="font-size:12px;color:rgba(58,45,40,.5);margin-top:10px">The Hive &mdash; our ConvertKit newsletter list.</p>
+<p style="font-size:12px;color:rgba(58,45,40,.5);margin-top:10px">The Hive &mdash; already-live ConvertKit newsletter list, reused as-is.</p>
 """
 PARTS.append(two_col_container(ask_html, f'<div style="border-left:1px solid rgba(215,203,194,.9);padding-left:56px">{letter_html}</div>', "1_2", "1_2", hundred_percent="no", padding_top="30px", padding_bottom="70px"))
 
