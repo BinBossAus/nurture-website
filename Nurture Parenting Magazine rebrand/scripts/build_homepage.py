@@ -183,7 +183,7 @@ mentors_html = f"""
   <p class="n-lead" style="margin-top:16px;font-weight:300;font-size:18px">Six mentors in the private group, answering under their own names.</p>
 </div>
 <div class="n-grid n-grid-3" style="margin-top:44px;gap:26px">{mentor_cards}</div>
-<div style="text-align:center;margin-top:40px"><a href="#" class="n-cta">Join the group</a></div>
+<div style="text-align:center;margin-top:40px"><a href="https://www.facebook.com/groups/nurtureparentingmagazine/" target="_blank" rel="noopener" class="n-cta">Join the group</a></div>
 """
 PARTS.append(one_col_container(mentors_html, hundred_percent="no", padding_top="30px", padding_bottom="20px"))
 

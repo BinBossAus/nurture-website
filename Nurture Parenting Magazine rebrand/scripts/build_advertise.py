@@ -130,10 +130,10 @@ book_html = """
   <p class="n-lead" style="max-width:52ch;margin:18px auto 0;font-weight:300;font-size:18px">The media kit has packages, add-ons, deadlines, specs and rates. Complete the form below to receive it, or book online through the link inside the kit.</p>
   <p class="n-lead" style="max-width:52ch;margin:12px auto 0;font-size:15px">We track your deadlines, send a proof before every on-sale date, and post you a copy of each issue you appear in.</p>
   <div style="display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap">
-    <a href="https://tally.so/r/media-kit" target="_blank" rel="noopener" class="n-cta">Request the media kit</a>
+    <a href="mailto:advertise@nurtureparentingmagazine.com.au?subject=Media%20kit%20request" class="n-cta">Request the media kit</a>
     <a href="/contact/" class="n-ghost">Book online</a>
   </div>
-  <p style="font-size:12px;color:rgba(58,45,40,.5);margin-top:16px">Media kit request form via Tally.so &mdash; replace with your live form link once published.</p>
+  <p style="font-size:12px;color:rgba(58,45,40,.5);margin-top:16px">Emails advertise@nurtureparentingmagazine.com.au directly &mdash; swap for a Tally.so form link once one is published.</p>
 </div>
 """
 PARTS.append(one_col_container(book_html, hundred_percent="no", padding_top="10px", padding_bottom="70px"))
