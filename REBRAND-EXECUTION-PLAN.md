@@ -17,6 +17,13 @@ Executed directly against the live site over HTTP (admin login + REST API — se
 - ✅ Sitewide footer rebuilt. It turned out `1245` ("Nurture Custom Footer") was still the **unmodified Avada "Barber Shop" demo footer** just renamed (its Live Builder URL literally reads `.../fusion_tb_section/barbers-custom-footer/`) — old PNG logo, old structure. Replaced with the Page Build Sheet's spec: dark `#3A2D28` background, 4 columns (2/1/1/1), Playfair "Nurture." wordmark with a rose full stop, Read/Shop/Nurture link columns (Directory now linked here too), copyright bar. See `scripts/build_footer.py`.
 - ⏳ "Services" page left untouched — status still unconfirmed per the plan (needs a business decision, not something to guess at). Real photography/brand logos/mentor photos still placeholders — see `scripts/README.md` for exactly which, and why (never stock photos standing in for named real people or specific brands).
 
+## Live launch (2026-08-25, same session)
+
+- ✅ Avada `maintenance_mode` switched from `coming_soon` → off (`scripts/go_live.py`). Verified as a genuine anonymous visitor (no cookies): the real homepage and every rebuilt page now load directly, robots meta is the normal indexable tag (no more forced `noindex`), and `blog_public` (Settings → Reading → discourage search engines) was already unchecked, so the site is now indexable.
+- ✅ Sales / Next Steps / Getting Started Sales Guide / Creative Brief / Booking — per the Decisions above, these were explicitly called out as not meant to be public-facing. They were already unlinked from navigation, but for an actual live launch that's not enough (still reachable by direct URL / could get indexed) — set all five to Draft status via the REST API. Confirmed each now 404s for anonymous visitors. Content itself is untouched/recoverable (still exists as drafts) in case it's needed later as internal collateral, per the plan's own suggestion.
+- ✅ Fresh post-launch Avada Options backup saved (`fusion_options_backup_2026-08-25_post-launch.json`).
+- "Services" page: left as-is (published, unlinked from main nav) — its fate is a business decision the plan explicitly flagged as unconfirmed, not a launch blocker.
+
 # Nurture rebrand — what's actually left to do
 
 This is the fast path. Everything below is derived from what's already in `Nurture Parenting Magazine rebrand/` — the design work, copy and Avada settings are essentially done. The only thing missing was a single ordered list of what's still outstanding, cross-checked against your **actual live Avada Options export** (`fusion_options_backup_25-08-2026.json`) rather than against the original "currently wrong" notes some of the other docs describe (several of those have already been fixed on the live site).

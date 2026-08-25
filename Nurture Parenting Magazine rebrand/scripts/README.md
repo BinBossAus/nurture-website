@@ -55,6 +55,22 @@ with `.n-*` utility classes, and small helpers for emitting
 `fusion_builder_container` / `fusion_builder_row` / `fusion_builder_column` /
 `fusion_text` shortcode markup). Reuse it for any further pages.
 
+## Going live
+
+`go_live.py` flips Avada's `maintenance_mode` option from `coming_soon` to off via the
+same Import Options mechanism as `apply_options_delta.py` (edit
+`/tmp/options_go_live.json` — a full options export with just that one field changed —
+then run the script). This is also the file to look at if the site ever needs to go
+back into Coming Soon mode (set `maintenance_mode` back to `"coming_soon"`).
+
+As part of the same launch pass, the five explicitly-not-public pages (Sales, Next
+Steps, Getting Started Sales Guide, Creative Brief, Booking — see the Decisions section
+of `REBRAND-EXECUTION-PLAN.md`) were switched to Draft status via a plain
+`wp/v2/pages/<id>` REST PATCH (`{"status": "draft"}`). They were already unlinked from
+navigation, but "unlinked" alone isn't good enough for a real launch — still reachable
+by direct URL and crawlable. Draft keeps the content itself intact (not deleted) in
+case it's wanted later as internal collateral.
+
 ## Notes for whoever continues this
 
 - Session cookies/nonces expire — re-run `wp_login.py` if `push_page.py` starts
