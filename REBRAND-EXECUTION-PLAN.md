@@ -156,6 +156,13 @@ Claude's mockup put a live "Ask Nara" search box on the homepage, but that assum
 - **eNews / newsletter signup** → **ConvertKit**, already live on the current site as "The Hive" (`the-nurture-parenting-magazine-hive.kit.com` — the embed script is already in `content/pages/home.md`, base64-encoded at the bottom of the file). Reuse this embed as-is in the new "The letter" section of the rebuilt homepage rather than rebuilding it.
 - Both are explicitly interim. Don't build custom integration work between Tally/ConvertKit and anything else right now — plan for Nara to eventually take over lead forms, the interactive media kit and chatbot/agentic sales once it ships, and keep these two simple tools decoupled from everything else until then.
 
+## Digital edition / back issues presentation (not blocking the site build)
+
+Current back issues are presented via Designrr flipbooks (linked from Subscribe/back-issues and from at least one gift guide PDF). Two separate moves, neither urgent for the site relaunch:
+
+- **Fast swap, whenever there's a spare hour:** re-embed the same PDFs in ZenFlip or Publuu instead of Designrr — no watermark, real analytics, no design work, same source PDF. ZenFlip's built-in AI-chat-over-PDF feature is also a genuine (if partial) stopgap for "AI answers about an issue" before Nara ships.
+- **The real upgrade, planned alongside the InDesign remaster:** move away from the page-curl/PDF metaphor entirely for new issues — publish as native responsive web pages in the new design system instead. This is not just aesthetic: a PDF/flipbook is opaque to search, so as long as issues live only as flipbooks, Ask Nara can never actually index them once it ships. Worth raising with whoever handles the InDesign rebuild — check if the export workflow can produce a web/HTML version alongside print, so future issues are searchable from day one. Back issues can stay as PDFs behind the nicer viewer in the meantime.
+
 ## On "a really exciting new parenting journey"
 
 The approved direction already delivers most of this, and redesigning further now would slow you down rather than speed you up:
