@@ -1,3 +1,21 @@
+## Progress log (2026-08-25, execution run)
+
+Executed directly against the live site over HTTP (admin login + REST API — see
+`Nurture Parenting Magazine rebrand/scripts/README.md` for exactly how). Status:
+
+- ✅ Fresh Avada Options backup taken (`fusion_options_backup_2026-08-25_pre-rebrand.json`) before any change.
+- ✅ All 11 Global Options delta items fixed (H1/Headings 46px, link colours, H5, button border, background pattern/colour, content background, Woo sale badge, Page Title Bar hidden, main menu typography).
+- ✅ Custom CSS replaced with the corrected block (`#fdffbf` typo fixed).
+- ✅ Homepage rebuilt section-by-section per the Page Build Sheet.
+- ✅ Subscribe, Advertise, Our Story, Contact, Contributors rebuilt.
+- ✅ Shop rebuilt (hero + category chips + directory teaser), keeping the real `[fusion_woo_product_grid]` catalogue live, now sectioned by real product category.
+- ✅ Blog rebuilt (hero + chips), keeping the real `[fusion_recent_posts]` loop — none of the 43 posts' copy touched.
+- ✅ Showcase index + all 6 category hubs (Changemakers, Self Love, Love of Learning, Australian Made, The Essentials, Tested on Humans) built from one shared template.
+- ✅ **The Directory** — the one page that didn't exist — built and published at `/directory/`; Shop's "Browse the directory" button now links to it instead of `#`.
+- ✅ Main nav "Mentors" item corrected to point at the homepage `#mentors` section instead of `/contributors/` (Mentors ≠ Contributors, per Decisions below).
+- ⚠️ **Known issue:** the homepage hero section currently renders twice (an old leftover copy with `fusion_title` shortcodes and the old "Read the magazine" button label, immediately followed by the correct new copy). Not caused by `post_content` — see the "Known open issue" note in `scripts/README.md`. Needs a look via the actual Avada Builder UI.
+- ⏳ Not yet done: the sitewide footer (a separate Avada Theme Builder "Nurture Custom Footer" layout section, not page content) still shows the old PNG logo/structure rather than the Page Build Sheet's dark-footer spec — needs a Theme Builder edit, which isn't exposed over REST like pages are. "Services" page left untouched (status still unconfirmed per the plan). Real photography/brand logos/mentor photos still placeholders — see `scripts/README.md` for exactly which.
+
 # Nurture rebrand — what's actually left to do
 
 This is the fast path. Everything below is derived from what's already in `Nurture Parenting Magazine rebrand/` — the design work, copy and Avada settings are essentially done. The only thing missing was a single ordered list of what's still outstanding, cross-checked against your **actual live Avada Options export** (`fusion_options_backup_25-08-2026.json`) rather than against the original "currently wrong" notes some of the other docs describe (several of those have already been fixed on the live site).
