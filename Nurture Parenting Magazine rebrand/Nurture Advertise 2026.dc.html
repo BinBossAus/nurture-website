@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdfbf7;--espresso:#3a2d28;--clay:rgba(215,203,194,.35);--rose:#cbb1a5;--muted:rgba(58,45,40,.6);--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--espresso);text-decoration:none}a:hover{color:#8c6f61}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.ph{background:linear-gradient(160deg,#efe7e0,#e4d9d1 60%,#d9ccc3);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ph b{font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(58,45,40,.42);padding:14px 16px}
+.fade{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(253,251,247,0),var(--ivory));pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(203,177,165,.42),rgba(203,177,165,0) 70%);pointer-events:none;filter:blur(4px)}
+.glass{background:rgba(253,251,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--clay);border-radius:20px;box-shadow:0 10px 30px rgba(45,36,32,.05),inset 0 1px 0 rgba(255,255,255,.6)}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:17px 32px;border:0;border-radius:40px;cursor:pointer;box-shadow:0 4px 20px rgba(203,177,165,.28);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.cta:hover{background:var(--espresso);color:var(--ivory);box-shadow:0 8px 28px rgba(203,177,165,.34);transform:translateY(-2px)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(58,45,40,.22);border-radius:40px;cursor:pointer;transition:border-color .35s,background .35s,transform .35s}
+.ghost:hover{border-color:var(--rose);background:rgba(203,177,165,.09);transform:translateY(-2px)}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 20px}
+.lead{font-size:17.5px;line-height:1.75;color:var(--muted);margin:0}
+.sec{padding:110px 72px;max-width:1180px;margin:0 auto}
+.hr{height:1px;background:var(--clay);border:0;margin:0}
+.lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.lift:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,36,32,.09)}
+.fig{font-family:var(--serif);font-size:42px;line-height:1;font-variant-numeric:tabular-nums}
+.row{display:flex;justify-content:space-between;gap:24px;padding:16px 0;border-bottom:1px solid var(--clay);font-size:15px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow:hidden">
+  <nav style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:26px 72px;max-width:1180px;margin:0 auto">
+    <span style="font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em">Nurture<span style="color:var(--rose)">.</span></span>
+    <div style="display:flex;gap:34px;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase">
+      <a href="Nurture Home 2026.dc.html">Home</a><a href="#why">Why Nurture</a><a href="#packages">Packages</a><a href="#reach">Reach</a><a href="#book">Book</a>
+    </div>
+    <button type="button" class="cta" style="padding:14px 26px">Media kit</button>
+  </nav>
+
+  <div class="glow" style="top:-240px;right:-160px;width:720px;height:720px"></div>
+
+  <section style="position:relative;padding:66px 72px 0;max-width:1180px;margin:0 auto;text-align:center">
+    <span class="k">Partner with Nurture</span>
+    <h1 style="font-size:clamp(44px,5.2vw,70px);max-width:22ch;margin:0 auto">Reach parents who read every word.</h1>
+    <p class="lead" style="max-width:54ch;margin:26px auto 0">Bi-monthly print in over 1,000 Australian newsagents, permanent digital distribution, and a readership that keeps the magazine instead of recycling it.</p>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:36px">
+      <button type="button" class="cta">Request the media kit</button>
+      <a href="#book" class="ghost">Book online</a>
+    </div>
+  </section>
+
+  <div style="position:relative;margin-top:58px;height:520px">
+    <div class="ph" style="position:absolute;inset:0"><b>photograph · magazine on a kitchen table, morning light, 2400×1040</b></div>
+    <div class="fade" style="height:60%"></div>
+  </div>
+
+  <div style="max-width:1180px;margin:0 auto;padding:0 72px">
+    <div style="display:flex;gap:48px;flex-wrap:wrap;justify-content:space-between;font:500 11px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">
+      <span>1,000+ newsagents</span><span>600+ national libraries</span><span>80K+ social</span><span>Bi-monthly since 2012</span>
+    </div>
+  </div>
+
+  <section class="sec" id="why" style="padding-top:96px">
+    <div style="display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:72px;align-items:center">
+      <div>
+        <span class="k">Why Nurture</span>
+        <h2 style="font-size:42px">A values-led audience, not an impression count</h2>
+        <p class="lead" style="margin-top:22px;max-width:46ch">Our readers care how a thing was made and who made it. They read a magazine they paid for, cover to cover, and they keep it — which means your page is still in the house six months after it printed.</p>
+        <p class="lead" style="margin-top:16px;max-width:46ch">We don't sell space and step away. We write your story into the issue in a way that fits how our readers read.</p>
+      </div>
+      <div class="glass lift" style="padding:44px">
+        <div class="row" style="padding-top:0"><span>Print reach, annually</span><strong>30,000+</strong></div>
+        <div class="row"><span>Digital newsstands, worldwide</span><strong>20,000+</strong></div>
+        <div class="row"><span>National libraries, archived permanently</span><strong>600+</strong></div>
+        <div class="row"><span>Combined social following</span><strong>80,000+</strong></div>
+        <div class="row"><span>Newsletter subscribers</span><strong>3,000+</strong></div>
+        <div class="row" style="border-bottom:0"><span>Website, monthly views</span><strong>1,400</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="sec" id="packages">
+    <div style="text-align:center;max-width:56ch;margin:0 auto">
+      <span class="k">Our packages</span>
+      <h2 style="font-size:40px">Flexible from one issue to a full year</h2>
+      <p class="lead" style="margin-top:18px">Start-up, small business or established ethical brand — the inclusions are the same, the scale is yours.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px">
+      <div class="glass lift" style="padding:36px"><h3 style="font-size:22px">In the magazine</h3><p class="lead" style="font-size:15px;margin-top:14px">Product and brand advertorial features, written with you. Print and digital exposure, with QR codes linking straight to your shop.</p></div>
+      <div class="glass lift" style="padding:36px"><h3 style="font-size:22px">Around the magazine</h3><p class="lead" style="font-size:15px;margin-top:14px">Social, website, newsletter and blog exposure. Exclusive giveaways and reader promotions.</p></div>
+      <div class="glass lift" style="padding:36px"><h3 style="font-size:22px">All year round</h3><p class="lead" style="font-size:15px;margin-top:14px">A listing in the Natural Parenting Directory, and a place in the seasonal digital gift guides.</p></div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:0">
+    <div style="position:relative;height:440px">
+      <div class="ph" style="position:absolute;inset:0"><b>photograph · gift guide flat lay, ethical products</b></div>
+      <div class="fade" style="height:68%"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:34px;text-align:center">
+        <span class="k">Three guides a year</span>
+        <h2 style="font-size:40px;max-width:26ch">Add a gift guide for reach and frequency</h2>
+      </div>
+    </div>
+    <div class="sec" style="padding-top:42px">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+        <div class="glass lift" style="padding:34px"><h3 style="font-size:21px">Mama's May</h3><p class="lead" style="font-size:15px;margin-top:12px">For mothers, all month long.</p></div>
+        <div class="glass lift" style="padding:34px"><h3 style="font-size:21px">The Baby Shower Edition</h3><p class="lead" style="font-size:15px;margin-top:12px">Practical, playful, heartfelt.</p></div>
+        <div class="glass lift" style="padding:34px"><h3 style="font-size:21px">The Natural Family Christmas Guide</h3><p class="lead" style="font-size:15px;margin-top:12px">Gifts for the whole family.</p></div>
+      </div>
+      <p class="lead" style="text-align:center;max-width:56ch;margin:34px auto 0;font-size:15px">The same discount applies at checkout when a guide is added to a print package.</p>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="sec">
+    <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center">
+      <div>
+        <span class="k">Discounts</span>
+        <h2 style="font-size:40px">Book longer, pay less, stay flexible</h2>
+        <p class="lead" style="margin-top:20px;max-width:44ch">Book one issue or all six. Campaigns booked upfront are discounted and invoiced issue by issue, so the saving doesn't cost you cash flow. Change your package or your artwork between issues.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+        <div class="glass" style="padding:30px"><span class="fig">2%</span><p class="lead" style="font-size:14px;margin-top:10px">Two issues</p></div>
+        <div class="glass" style="padding:30px"><span class="fig">4%</span><p class="lead" style="font-size:14px;margin-top:10px">Three issues</p></div>
+        <div class="glass" style="padding:30px"><span class="fig">6%</span><p class="lead" style="font-size:14px;margin-top:10px">Four issues</p></div>
+        <div class="glass" style="padding:30px;border-color:rgba(203,177,165,.65);box-shadow:0 10px 30px rgba(203,177,165,.16),inset 0 1px 0 rgba(255,255,255,.6)"><span class="fig" style="color:#8c6f61">10%</span><p class="lead" style="font-size:14px;margin-top:10px">Full year, six issues</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="sec">
+    <div style="text-align:center;max-width:58ch;margin:0 auto">
+      <span class="k">Published with purpose</span>
+      <h2 style="font-size:40px">A keepsake, not a disposable</h2>
+      <p class="lead" style="margin-top:20px">Recycled paper, plant-based inks, compostable satchels, and research-backed articles by writers our readers already trust. That's why the magazine gets kept — and why your page keeps working.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="book" style="padding-top:0">
+    <div class="glass" style="padding:64px;text-align:center;border-radius:26px">
+      <span class="k">How to book</span>
+      <h2 style="font-size:36px;max-width:24ch;margin:0 auto">Two ways in</h2>
+      <p class="lead" style="max-width:52ch;margin:20px auto 0">The media kit has packages, add-ons, deadlines, specs and rates. Return the interactive booking form, or book online through the link inside the kit.</p>
+      <p class="lead" style="max-width:52ch;margin:14px auto 0;font-size:15px">We track your deadlines, send a proof before every on-sale date, and post you a copy of each issue you appear in.</p>
+      <div style="display:flex;gap:16px;justify-content:center;margin-top:32px">
+        <button type="button" class="cta">View media kit</button>
+        <a href="#book" class="ghost">Book online</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--espresso);color:rgba(253,251,247,.72);padding:70px 72px 40px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:44px;flex-wrap:wrap;align-items:flex-end">
+      <div>
+        <div style="font-family:var(--serif);font-size:28px;font-weight:500;color:var(--ivory)">Nurture<span style="color:var(--rose)">.</span></div>
+        <p style="font-size:13.5px;line-height:1.8;margin:16px 0 0;max-width:32ch">Nurture Parenting Magazine · PO Box 2292, Burleigh Post Shop QLD 4220 · ABN 15 617 938 013</p>
+      </div>
+      <p style="font-size:13.5px;margin:0"><a href="Nurture Home 2026.dc.html" style="color:rgba(253,251,247,.74)">Home</a> · <a href="#packages" style="color:rgba(253,251,247,.74)">Packages</a> · <a href="#book" style="color:rgba(253,251,247,.74)">Book</a></p>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>
