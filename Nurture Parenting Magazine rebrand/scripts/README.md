@@ -80,7 +80,7 @@ with `.n-*` utility classes, and small helpers for emitting
   `https://www.nurtureparentingmagazine.com.au/#mentors` via the `wp/v2/menu-items`
   REST endpoint (had to switch `type`/`object` to `"custom"` — updating `url` alone on a
   page-linked item is ignored, since the URL is derived from `object_id` at render time).
-- **Known open issue:** the homepage hero section renders twice on the live site (the
+- **RESOLVED (see below) — was:** the homepage hero section renders twice on the live site (the
   first copy uses real `fusion_title`/`fusion_button` shortcodes with the old copy
   "Read the magazine"; my replacement copy with "Read the blog" renders directly after
   it). Confirmed via the REST API and the classic editor that `post_content` for the
@@ -94,3 +94,24 @@ with `.n-*` utility classes, and small helpers for emitting
   wasn't resolved, the next step is to open the Home page in Avada's real front-end/
   back-end builder (not the classic editor) and see whether it shows a second, stale
   hero layer to delete.
+  - **Actual root cause found:** it was never `post_content` — it was two Avada Theme
+    Builder "Header" layout sections (`fusion_tb_section` posts 5388 "Header" and 1206
+    "Nurture Header"; only one of the two actually renders as the live header, but both
+    had been edited the same way). Each had the *entire* old hero
+    (`fusion_title`/`fusion_button` shortcodes, "Read the magazine" copy) built as a
+    second column inside the same row as the real logo/menu/subscribe-button column —
+    a leftover from earlier work on this rebrand. Since the header renders as part of
+    every page's theme-builder area immediately before the page's own content, this
+    made the homepage look like it had two stacked heroes.
+  - **Fix applied:** dropped that second column from both layout sections' `content`
+    field via `push_layout_section.py`, which submits the classic `wp-admin/post.php`
+    edit form directly (there's no REST route for `fusion_tb_section`). Verified
+    afterwards that every rebuilt page shows its hero/heading text exactly once.
+  - ⚠️ **Concurrency note:** a `computerUse` browser session was independently
+    poking around the same "Header" layout section in the real Avada Builder UI at the
+    same time as this HTTP-based fix was being applied, and the Home page's
+    `post_content` was briefly wiped to empty — almost certainly a save collision
+    between the two approaches editing overlapping data at once. It was immediately
+    caught and restored by re-running `push_page.py 1310 <homepage content file>`. If
+    both a `computerUse` agent and direct REST/`post.php` edits are ever running
+    against the same site at the same time again, don't — pick one.
