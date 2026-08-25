@@ -2,20 +2,46 @@
 
 This is the fast path. Everything below is derived from what's already in `Nurture Parenting Magazine rebrand/` — the design work, copy and Avada settings are essentially done. The only thing missing was a single ordered list of what's still outstanding, cross-checked against your **actual live Avada Options export** (`fusion_options_backup_25-08-2026.json`) rather than against the original "currently wrong" notes some of the other docs describe (several of those have already been fixed on the live site).
 
-## What's already in this repo
+## Update (2026-08-25, second upload): the page set is now complete
+
+A full second batch landed and has been merged in and de-duplicated (it arrived as a nested `... ALL IN ONE FILE/` copy of the entire folder plus 12 new pages; the new pages have been moved up to sit flat alongside the others, the redundant duplicate copy has been deleted, and the superseded `Homepage`/`1a`/`1b`/`1c` drafts have been removed per Claude's own `github.md` note marking them "do not upload"). Every file below was verified byte-for-byte before anything was deleted — nothing was lost.
+
+**Every page in the nav now has a finished, on-brand mockup.** This changes the execution order significantly — see the updated order further down.
+
+## Screen map (from `github.md`, verified against the actual files)
+
+| Page | File | Notes |
+|---|---|---|
+| Home | `Nurture Home 2026.dc.html` | Hero, current issue + pricing, Print/Post/Planted, blog teaser, mentors, gift guides, brands strip, Ask Nara/newsletter, footer. |
+| Subscribe | `Nurture Subscribe 2026.dc.html` | 3 pricing tiers ($20/$55/$95, consistent everywhere), "what's in every issue," digital back issues. |
+| Shop | `Nurture Shop 2026.dc.html` | **A real storefront**, not the directory — filterable chips (Subscriptions/Back issues/Digital/Planners/Bundles), individual back-issue and product cards. Ends with a teaser section pointing at "the conscious directory" (button currently links to `#` — **the Directory page itself still doesn't exist yet**, see below). |
+| Blog | `Nurture Blog 2026.dc.html` | Category chips, featured story, 6 article cards, newsletter close. Nav labelled "Read." |
+| Contributors | `Nurture Contributors 2026.dc.html` | The writers/photographers team page — confirmed distinct from the homepage "Mentors" section. |
+| Contact | `Nurture Contact 2026.dc.html` | |
+| Advertise | `Nurture Advertise 2026.dc.html` | Point "Request the media kit" at Tally.so. |
+| Our Story | `Nurture Our Story 2026.dc.html` | |
+| Showcase (index) | `Nurture Showcase 2026.dc.html` | Index/hub linking to the 6 category hubs below. |
+| Changemakers, Self Love, Love of Learning, Australian Made, The Essentials, Tested on Humans | `Nurture [name] 2026.dc.html` | **6 category hubs, all one template**: shared sub-nav bar across all 6 + Showcase, hero, one big featured cover-story card, 6 article cards, a "nominate/get in touch" glass CTA panel, and a "keep shopping" strip cross-linking every other hub. Build the template once, then repeat with each hub's own content. `The Essentials` is the renamed `Mama & Bubba Essentials`. `Tested on Humans` is new (team-tested product picks) and wasn't in the original page queue — confirm this is intentional if it's not already on your radar. |
+
+## What's still genuinely missing
+
+- **The Directory itself.** Every page (Shop, Subscribe, footer everywhere) now links to "the conscious directory" / "Browse the directory," but that page doesn't exist as a mockup yet — every link to it currently points at `#`. This is the one still-needed page, and it's the highest priority one: it's what print QR codes will point to. Build it as the categorised advertiser card grid described earlier in this doc (one template card, duplicated per advertiser/issue).
+- **Services** was in the original page queue (from the Rebrand Handbook) but isn't part of this new set — confirm whether it's still needed or has been folded into one of the hubs/Contact.
+- Everything else in the nav and footer now resolves to a real, finished page.
+
+## Other files already in this repo
 
 | File | What it is |
 |---|---|
-| `Nurture Home 2026.dc.html`, `Nurture Advertise 2026.dc.html`, `Nurture Our Story 2026.dc.html` | **Finished, correct** visual mockups — the approved direction. Open these in a browser as your build reference. |
-| `Nurture Homepage 1a/1b/1c.dc.html`, `Nurture Homepage.dc.html` | Earlier drafts, **superseded** — they used wrong pricing ($45/$75, "four times a year"). Ignore for copy/pricing. The only thing worth keeping from `1c` is the working 3D cover-shelf CSS, which is already carried into `Home 2026`. |
 | `Nurture Build Steps.dc.html` | Ordered checklist: Global Options → Custom CSS cleanup → homepage rebuild → other pages. |
 | `Nurture Typography + Colour Spec.dc.html` | Field-by-field Avada Options values (the authoritative settings reference). |
-| `Nurture Rebrand Handbook.dc.html` | Why each setting is wrong + rewritten copy for Home and Subscribe (13 more pages queued). |
+| `Nurture Rebrand Handbook.dc.html` | Why each setting is wrong + rewritten copy for Home and Subscribe. |
 | `Nurture Page Build Sheet.dc.html` | Section-by-section homepage build spec: exact copy, container/column setup, element choice. |
-| `fusion_options_backup_25-08-2026.json` | **Your current live Avada Global Options export.** This is the ground truth for "what's actually live right now." |
+| `fusion_options_backup_25-08-2026.json` | **Your live Avada Global Options export as of 25 Aug.** Re-export a fresh one before actually making changes — the live site may have moved since. |
 | `uploads/nurtureparentingmagazine.WordPress.2026-08-23.xml` | Full WordPress content export (30 pages, 43 posts, 29 products) — source copy for pages not yet rewritten. |
 | `content/pages/*.md` | The current site's copy, page by page, already extracted from the export. Note: `home.md` ends with two base64-encoded shortcodes — one is an Instagram feed shortcode, the other is the existing ConvertKit ("The Hive") signup script tag. Both are real, currently-live embeds worth reusing rather than rebuilding. |
 | `_ds/classical-.../` | A separate editorial design system used only to style the handbook *documents themselves* — not part of the actual site direction. Ignore it for the WordPress build; the real brand system is Porcelain Ivory / Espresso Earth / Rose Gold with Playfair Display + Inter, shown in the `2026` mockups. |
+| `github.md` | Claude's own manifest/changelog of what it built — kept for reference. |
 
 ## The actual remaining delta in Avada → Options
 
@@ -112,8 +138,15 @@ Also remove the "curved section separator" element from every container in the B
 2. **Fix the 11-item delta above** in Avada → Global Options. Use the search box at the top of Options to jump straight to each field.
 3. **Paste the corrected Custom CSS** (above) and delete the curved section separators in the Builder.
 4. **Rebuild the homepage** section by section using `Nurture Page Build Sheet.dc.html` as the literal spec (container setup, column ratios, element choice) and `Nurture Home 2026.dc.html` as the visual target open in another tab. Section order: Hero → credentials strip → current issue + 3 price cards → Print/Post/Planted → blog → mentors → gift guides → brands strip → **"Ask Nara" placeholder** + newsletter (ConvertKit) → footer. See "Ask Nara — decouple from the Nara SaaS build" below for what goes in that slot right now.
-5. **Advertise and Our Story** are also fully designed and copy-approved (`Nurture Advertise 2026.dc.html`, `Nurture Our Story 2026.dc.html`) — build these next using the same section-by-section approach (container/column notes aren't written out per-section for these two the way they are for Home, but the finished HTML is close enough to lift structure and copy directly). On Advertise, point "Request the media kit" at the Tally.so form (see Lead capture, below), not a mailto or a static download.
-6. **Then the remaining pages**, in this order: Shop/Directory → Contributors → Blog (re-skin only, see below) → Changemakers → Self Love → Love of Learning → Showcase → Australian Made → Mama & Bubba Essentials → Services → Contact. Source copy for these is in `content/pages/*.md`; each still needs the same voice pass Home and Subscribe already got (specific over aspirational, no emoji/exclamation marks, Australian spelling, claims tied to something checkable). **Sales, Next Steps, Getting Started Sales Guide, Creative Brief and Booking are dropped from this list entirely** — see Decisions, below.
+5. **Every other nav page now has a finished mockup** (see the Screen map above) — build them in this order, each the same way (lift structure/copy/settings straight from its own `2026.dc.html` file, none have the section-by-section build sheet Home got, but the finished HTML is detailed enough to build from directly):
+   - **Subscribe, Advertise, Our Story** — straightforward single builds.
+   - **Shop** — the storefront (chips + product cards). Leave the "Browse the directory" button pointing at `#` until the Directory page (below) exists.
+   - **Blog** — re-skin only, see "Blog: rebrand the frame, not the copy" below; don't rewrite the 43 existing posts.
+   - **Contributors, Contact** — straightforward single builds.
+   - **The 6 category hubs + Showcase index** (Changemakers, Self Love, Love of Learning, Australian Made, The Essentials, Tested on Humans) — build the shared template once (sub-nav bar, hero, featured story card, 6 article cards, CTA panel, "keep shopping" strip), then repeat per hub with that hub's own content. Much faster once the template's built the first time.
+   - **The Directory** — build this once the above are live; it's the one page in the whole nav that doesn't have a mockup yet (see "What's still genuinely missing," above). Highest priority once you reach it, since it's the print QR-code destination.
+   - **Services** — status unclear, confirm if still needed (see above).
+   - **Sales, Next Steps, Getting Started Sales Guide, Creative Brief, Booking are dropped entirely** — not in this list, not rebuilt, not linked from nav (see Decisions, below).
 
 ## Decisions confirmed (2026-08-25)
 
@@ -128,12 +161,12 @@ Resolving the ambiguity in the original nav labels:
 - **Subscribe** — print + digital subscriptions and single-issue purchase (the three pricing tiers already on Home/Subscribe). No change needed.
 - **Read** → the **blog**. Keep this distinct from back issues: back issues/emag stay under **Subscribe** (the "Digital back issues" section already written into the Subscribe page copy), since they're a purchase/download, not free editorial. One copy fix to make while building the hero: "Read the magazine" as a button label is ambiguous against this split — it currently links to the free blog (`#read`), which reads like it should mean the actual magazine. Either relabel that hero button to something like "Read the blog" / "Free articles," or repoint it at the digital back-issues section instead. Pick one when you build the hero; don't leave the mismatch as-is.
 - **Mentors ≠ Contributors — these are two different things, not a rename.** Mentors are the six named practitioners who host the monthly live Q&A in the private Facebook group (Penny, Andrea, Crystal, Stephanie, Micarlé, Naomi) — that's the homepage "Mentors" section as designed. Contributors/"Team" is the separate, existing page (`content/pages/contributors.md`, ~1,090 words) for the broader roster of writers and photographers who write for the magazine. Keep both — don't merge them. Given the main nav is already getting full (Subscribe, Read, Mentors, Shop, Advertise), consider keeping Contributors out of the primary nav and linking it instead from the footer and from Our Story, rather than adding a sixth top-level item — your call.
-- **Shop → the advertiser Directory**, not a generic storefront. This is the page print QR codes will point to, so it needs a stable URL and to be easy to update every issue without a developer. Build it as a categorised grid of advertiser cards (logo, one line, link out) — the same content currently sitting in the "Natural Parenting Directory" section on the homepage export, just promoted to its own page. Structure it once in the Builder as a template card, then duplicate/edit per new advertiser or per-issue feature; no plugin or custom post type needed to move fast.
-- **"Brands we love" (or a new name) stays on the homepage, separate from the Shop/Directory page.** This is the paid homepage-placement inclusion in certain ad packages — a small, fixed logo strip, not the full categorised directory. It's already in `Home 2026` as the "For brands" section; keep it, just confirm a final name if "Brands we love" doesn't fit anymore (e.g. "Brands we back," "In good company").
+- **Correction from earlier in this doc: Shop is a real storefront, not the Directory.** Claude's actual `Nurture Shop 2026.dc.html` build confirms Shop = subscriptions, single/back issues, the digital archive, planners and bundles (filterable by category) — a proper shop page, exactly as its own nav item suggests. **The Directory is a separate page that doesn't exist yet** (see "What's still genuinely missing," above) — it's linked from Shop, Subscribe, and the footer, but every link currently points at `#`. Build it next in priority, since it's the one print QR codes will point to.
+- **"Brands we love" (or a new name) stays on the homepage, separate from both Shop and the Directory.** This is the paid homepage-placement inclusion in certain ad packages — a small, fixed logo strip, not the full categorised directory. It's already in `Home 2026` as the "For brands" section; keep it, just confirm a final name if "Brands we love" doesn't fit anymore (e.g. "Brands we back," "In good company").
 
-## The advertiser Directory (Shop)
+## The advertiser Directory (build this — it's the one page still missing)
 
-Because print QR codes will point straight at this page and it needs a new advertorial feature added every issue, keep the build dead simple: one card component (logo/image, brand name, one-line description, category tag, outbound link) built once in Fusion Builder, then copied and edited for each advertiser. Group by category (matching whatever categories the current homepage directory images use). This avoids depending on Nara's future automation to keep it current — anyone can duplicate a card between issues.
+Because print QR codes will point straight at this page and it needs a new advertorial feature added every issue, keep the build dead simple: one card component (logo/image, brand name, one-line description, category tag, outbound link) built once in Fusion Builder in the same visual language as the Shop/Blog/hub pages (glass cards, category chips), then copied and edited for each advertiser. Group by category. This avoids depending on Nara's future automation to keep it current — anyone can duplicate a card between issues. Once built, fix the `#` placeholder links on Shop, Subscribe and the footer to point at it.
 
 ## Blog: rebrand the frame, not the copy
 
