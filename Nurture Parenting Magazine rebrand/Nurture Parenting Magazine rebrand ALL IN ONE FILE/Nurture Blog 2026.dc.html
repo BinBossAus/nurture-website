@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#fdfbf7;--espresso:#3a2d28;--clay:rgba(215,203,194,.35);--clay-solid:#d7cbc2;--rose:#cbb1a5;--muted:rgba(58,45,40,.6);--deep:#2a201c;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--espresso);text-decoration:none}
+a:hover{color:#8c6f61}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.ph{background:linear-gradient(160deg,#efe7e0,#e4d9d1 60%,#d9ccc3);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ph b{font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(58,45,40,.42);padding:14px 16px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to bottom,rgba(253,251,247,0),var(--ivory));pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(203,177,165,.42),rgba(203,177,165,0) 70%);pointer-events:none;filter:blur(4px)}
+.glass{background:rgba(253,251,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--clay);border-radius:20px;box-shadow:0 10px 30px rgba(45,36,32,.05),inset 0 1px 0 rgba(255,255,255,.6)}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:17px 32px;border:0;border-radius:40px;cursor:pointer;box-shadow:0 4px 20px rgba(203,177,165,.28);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.cta:hover{background:var(--espresso);color:var(--ivory);box-shadow:0 8px 28px rgba(203,177,165,.34);transform:translateY(-2px)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(58,45,40,.22);border-radius:40px;cursor:pointer;transition:border-color .35s,background .35s,transform .35s}
+.ghost:hover{border-color:var(--rose);background:rgba(203,177,165,.09);transform:translateY(-2px)}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 20px}
+.lead{font-size:18px;line-height:1.75;color:var(--muted);margin:0}
+.sec{padding:118px 72px;max-width:1180px;margin:0 auto}
+.hr{height:1px;background:var(--clay);border:0;margin:0;max-width:1180px}
+.card-lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,36,32,.09)}
+.chip{display:inline-flex;align-items:center;font:500 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:12px 20px;border:1px solid var(--clay);border-radius:30px;cursor:pointer;transition:border-color .3s,color .3s,background .3s}
+.chip:hover{border-color:var(--rose);color:var(--espresso);background:rgba(203,177,165,.09)}
+.chip.on{background:var(--espresso);border-color:var(--espresso);color:var(--ivory)}
+input[type=email]{background:rgba(253,251,247,.9);border:1px solid rgba(215,203,194,.55);color:var(--espresso);border-radius:12px;padding:15px 18px;font:400 15px var(--sans);outline:none;transition:border-color .3s,box-shadow .3s}
+input:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(203,177,165,.22)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow:hidden">
+
+  <nav style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:26px 72px;max-width:1180px;margin:0 auto">
+    <a href="Nurture Home 2026.dc.html" style="font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em">Nurture<span style="color:var(--rose)">.</span></a>
+    <div style="display:flex;gap:34px;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase">
+      <a href="Nurture Subscribe 2026.dc.html">Subscribe</a><a href="Nurture Blog 2026.dc.html" style="color:#8c6f61">Read</a><a href="Nurture Home 2026.dc.html">Mentors</a><a href="Nurture Advertise 2026.dc.html">Advertise</a><a href="Nurture Shop 2026.dc.html">Shop</a>
+    </div>
+    <button type="button" class="cta" style="padding:14px 26px">Subscribe</button>
+  </nav>
+
+  <section style="position:relative;padding:70px 72px 0;max-width:1180px;margin:0 auto;text-align:center">
+    <span class="k">Free to read · updated weekly</span>
+    <h1 style="font-size:clamp(46px,5.2vw,70px);max-width:18ch;margin:0 auto">The natural parenting blog</h1>
+    <p class="lead" style="max-width:52ch;margin:26px auto 0">Everything we publish between issues. Sourced, cited, and written by people who do this work.</p>
+  </section>
+
+  <div style="position:relative;margin-top:52px;height:520px">
+    <div class="ph" style="position:absolute;inset:0;height:100%"><b>photograph · mother reading, warm interior light, 2400×1040</b></div>
+    <div class="fade" style="height:64%"></div>
+  </div>
+
+  <section style="max-width:1180px;margin:0 auto;padding:8px 72px 0">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <span class="chip on">All</span><span class="chip">Sleep</span><span class="chip">Feeding</span><span class="chip">Birth</span><span class="chip">Connection</span><span class="chip">Learning</span><span class="chip">Self love</span>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:76px;padding-bottom:0">
+    <a href="#" class="glass card-lift" style="display:grid;grid-template-columns:1.15fr 1fr;gap:0;overflow:hidden">
+      <div class="ph" style="min-height:440px"><b>lead photograph · 1400×1200</b></div>
+      <div style="padding:60px 56px;display:flex;flex-direction:column;justify-content:center">
+        <span class="k" style="margin-bottom:14px">Featured · Sleep</span>
+        <h2 style="font-size:clamp(28px,2.8vw,38px);max-width:18ch">What nobody tells you about the fourth month</h2>
+        <p style="font-size:16.5px;line-height:1.75;color:var(--muted);margin:20px 0 26px;max-width:44ch">It gets called a regression. It is closer to a baby learning to sleep the way the rest of us do — in cycles, with surfacing in between. What that means for the nights ahead.</p>
+        <p style="font:400 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Andrea Fallon · 9 min read</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="sec" style="padding-top:52px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px 34px">
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Feeding</span>
+        <h3 style="font-size:23px;max-width:20ch">A weaning table, not a weaning battle</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">On letting a child decide when they are finished, and what to do with the guilt that follows.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Penny Chote · 6 min</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Connection</span>
+        <h3 style="font-size:23px;max-width:20ch">Attachment, minus the guilt</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">Secure does not mean constant. What forty years of research actually asks of a parent.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Naomi Aldort · 11 min</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Perinatal mental health</span>
+        <h3 style="font-size:23px;max-width:20ch">The year nobody photographs</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">Matrescence, and why the hardest part of new motherhood is rarely the baby.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Crystal Hardstaff · 8 min</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Learning</span>
+        <h3 style="font-size:23px;max-width:20ch">Before the alphabet, the afternoon</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">Play-based early years, and the case for doing considerably less before five.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Micarlé Callea · 7 min</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Birth</span>
+        <h3 style="font-size:23px;max-width:20ch">Writing a birth plan you can abandon</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">Preferences, not prescriptions — and the four conversations to have first.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Andrea Fallon · 10 min</p>
+      </a>
+
+      <a href="#" style="display:block">
+        <div class="ph card-lift" style="aspect-ratio:5/4;border-radius:16px"><b>photograph</b></div>
+        <span class="k" style="margin:20px 0 10px">Emotional intelligence</span>
+        <h3 style="font-size:23px;max-width:20ch">Big feelings in small bodies</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin:10px 0 12px">What a tantrum is doing neurologically, and why waiting it out is the work.</p>
+        <p style="font:400 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0">Stephanie Pinto · 6 min</p>
+      </a>
+
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:64px">
+      <a href="#" class="ghost">Load more articles</a>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 auto">
+
+  <section class="sec">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <span class="k">The letter</span>
+        <h2 style="font-size:clamp(30px,3vw,42px);max-width:16ch">Six emails a year. Not one more.</h2>
+        <p class="lead" style="margin:20px 0 30px;max-width:42ch">What's in the next issue, the best of the blog, and first look at the gift guides before they go public.</p>
+        <div style="display:flex;gap:12px;max-width:440px">
+          <input type="email" placeholder="you@example.com" style="flex:1">
+          <button type="button" class="cta">Join</button>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="ph" style="height:400px;border-radius:20px"><b>photograph · letterbox, morning, 1200×1000</b></div>
+        <div class="glow" style="bottom:-80px;right:-60px;width:320px;height:320px;opacity:.85"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--espresso);color:rgba(253,251,247,.72);padding:76px 72px 44px">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px">
+      <div>
+        <span style="font-family:var(--serif);font-size:30px;color:var(--ivory)">Nurture<span style="color:var(--rose)">.</span></span>
+        <p style="font-size:13.5px;line-height:1.8;margin:14px 0 0;max-width:34ch">Nurture Parenting Magazine · PO Box 2292, Burleigh Post Shop QLD 4220 · ABN 15 617 938 013</p>
+      </div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Read</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Blog 2026.dc.html" style="color:rgba(253,251,247,.74)">Blog</a><a href="Nurture Shop 2026.dc.html" style="color:rgba(253,251,247,.74)">Back issues</a><a href="#" style="color:rgba(253,251,247,.74)">Gift guides</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Shop</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Subscribe 2026.dc.html" style="color:rgba(253,251,247,.74)">Subscribe</a><a href="Nurture Shop 2026.dc.html" style="color:rgba(253,251,247,.74)">Single issues</a><a href="#" style="color:rgba(253,251,247,.74)">Directory</a></div></div>
+      <div><p style="font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(253,251,247,.42);margin:0 0 14px">Nurture</p><div style="display:grid;gap:10px;font-size:13.5px"><a href="Nurture Advertise 2026.dc.html" style="color:rgba(253,251,247,.74)">Advertise</a><a href="Nurture Contact 2026.dc.html" style="color:rgba(253,251,247,.74)">Contact</a><a href="Nurture Our Story 2026.dc.html" style="color:rgba(253,251,247,.74)">Our story</a></div></div>
+    </div>
+    <p style="max-width:1180px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(253,251,247,.12);font-size:12px;color:rgba(253,251,247,.4)">© 2012–2026 Nurture Global Pty Ltd. All rights reserved.</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>
