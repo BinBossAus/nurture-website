@@ -14,7 +14,7 @@ This is the fast path. Everything below is derived from what's already in `Nurtu
 | `Nurture Page Build Sheet.dc.html` | Section-by-section homepage build spec: exact copy, container/column setup, element choice. |
 | `fusion_options_backup_25-08-2026.json` | **Your current live Avada Global Options export.** This is the ground truth for "what's actually live right now." |
 | `uploads/nurtureparentingmagazine.WordPress.2026-08-23.xml` | Full WordPress content export (30 pages, 43 posts, 29 products) — source copy for pages not yet rewritten. |
-| `content/pages/*.md` | The current site's copy, page by page, already extracted from the export. |
+| `content/pages/*.md` | The current site's copy, page by page, already extracted from the export. Note: `home.md` ends with two base64-encoded shortcodes — one is an Instagram feed shortcode, the other is the existing ConvertKit ("The Hive") signup script tag. Both are real, currently-live embeds worth reusing rather than rebuilding. |
 | `_ds/classical-.../` | A separate editorial design system used only to style the handbook *documents themselves* — not part of the actual site direction. Ignore it for the WordPress build; the real brand system is Porcelain Ivory / Espresso Earth / Rose Gold with Playfair Display + Inter, shown in the `2026` mockups. |
 
 ## The actual remaining delta in Avada → Options
@@ -111,25 +111,59 @@ Also remove the "curved section separator" element from every container in the B
 1. **Back up first.** Avada → Options → Import/Export → Export Options → save the file. (You already have one snapshot in this repo — take a fresh one before touching anything, since the live site has moved on since that export.)
 2. **Fix the 11-item delta above** in Avada → Global Options. Use the search box at the top of Options to jump straight to each field.
 3. **Paste the corrected Custom CSS** (above) and delete the curved section separators in the Builder.
-4. **Rebuild the homepage** section by section using `Nurture Page Build Sheet.dc.html` as the literal spec (container setup, column ratios, element choice) and `Nurture Home 2026.dc.html` as the visual target open in another tab. Section order: Hero → credentials strip → current issue + 3 price cards → Print/Post/Planted → blog → mentors → gift guides → advertisers → Ask Nara + newsletter → footer.
-5. **Advertise and Our Story** are also fully designed and copy-approved (`Nurture Advertise 2026.dc.html`, `Nurture Our Story 2026.dc.html`) — build these next using the same section-by-section approach (container/column notes aren't written out per-section for these two the way they are for Home, but the finished HTML is close enough to lift structure and copy directly).
-6. **Then the remaining pages**, in the order the Rebrand Handbook suggests: Shop → Contributors → Blog → Changemakers → Self Love → Love of Learning → Showcase → Australian Made → Mama & Bubba Essentials → Services → Contact. Source copy for these is in `content/pages/*.md`; each still needs the same voice pass Home and Subscribe already got (specific over aspirational, no emoji/exclamation marks, Australian spelling, claims tied to something checkable).
+4. **Rebuild the homepage** section by section using `Nurture Page Build Sheet.dc.html` as the literal spec (container setup, column ratios, element choice) and `Nurture Home 2026.dc.html` as the visual target open in another tab. Section order: Hero → credentials strip → current issue + 3 price cards → Print/Post/Planted → blog → mentors → gift guides → brands strip → **"Ask Nara" placeholder** + newsletter (ConvertKit) → footer. See "Ask Nara — decouple from the Nara SaaS build" below for what goes in that slot right now.
+5. **Advertise and Our Story** are also fully designed and copy-approved (`Nurture Advertise 2026.dc.html`, `Nurture Our Story 2026.dc.html`) — build these next using the same section-by-section approach (container/column notes aren't written out per-section for these two the way they are for Home, but the finished HTML is close enough to lift structure and copy directly). On Advertise, point "Request the media kit" at the Tally.so form (see Lead capture, below), not a mailto or a static download.
+6. **Then the remaining pages**, in this order: Shop/Directory → Contributors → Blog (re-skin only, see below) → Changemakers → Self Love → Love of Learning → Showcase → Australian Made → Mama & Bubba Essentials → Services → Contact. Source copy for these is in `content/pages/*.md`; each still needs the same voice pass Home and Subscribe already got (specific over aspirational, no emoji/exclamation marks, Australian spelling, claims tied to something checkable). **Sales, Next Steps, Getting Started Sales Guide, Creative Brief and Booking are dropped from this list entirely** — see Decisions, below.
 
-## Two decisions needed before content work continues (from Build Steps)
+## Decisions confirmed (2026-08-25)
 
-These block Claude/whoever is doing the copy pass from finishing the remaining pages — they don't block the Options/CSS/homepage work above, so don't let them slow down steps 1–5:
+- **Sales / Next Steps / Getting Started Sales Guide / Creative Brief / Booking are out.** None of these are live or developed, and keeping "sales" material as public-facing pages cheapens the site. They are not in the page queue above and shouldn't be rebuilt, rebranded or linked from navigation. If any of that content is genuinely needed later (e.g. as the interactive media kit once Nara can serve it), treat it as a separate, internal-only project — not part of this site rebuild.
+- **The Nara SaaS (client comms/proposals/automation/chatbot) is a separate, unfinished 9-month project** and is explicitly *not* part of this website rebuild. Nothing in the site build should depend on it being ready. See "Ask Nara" below for how the one homepage slot that referenced it gets handled now.
+- **Lead capture, for now:** Tally.so for the gated media-kit download, ConvertKit for eNews signups (pre-relaunch list-building now, next-edition announcements once site + Nara are live). Both are interim — expect Nara to eventually absorb lead forms/automation, but don't build anything bespoke for that now. See "Lead capture & integrations" below.
 
-1. **Sales, Next Steps, Getting Started Sales Guide, Creative Brief, Booking** (~21,000 words total) — these read like internal advertiser sales collateral rather than public pages. Confirm whether they're customer-visible (and need the same voice/design pass) or internal-only (and can be left alone / moved off the public site).
-2. **43 blog post titles** — most are currently in full capitals. Confirm whether these should be rewritten too (quick, visible win if so).
+## Navigation & page structure
+
+Resolving the ambiguity in the original nav labels:
+
+- **Subscribe** — print + digital subscriptions and single-issue purchase (the three pricing tiers already on Home/Subscribe). No change needed.
+- **Read** → the **blog**. Keep this distinct from back issues: back issues/emag stay under **Subscribe** (the "Digital back issues" section already written into the Subscribe page copy), since they're a purchase/download, not free editorial. One copy fix to make while building the hero: "Read the magazine" as a button label is ambiguous against this split — it currently links to the free blog (`#read`), which reads like it should mean the actual magazine. Either relabel that hero button to something like "Read the blog" / "Free articles," or repoint it at the digital back-issues section instead. Pick one when you build the hero; don't leave the mismatch as-is.
+- **Mentors ≠ Contributors — these are two different things, not a rename.** Mentors are the six named practitioners who host the monthly live Q&A in the private Facebook group (Penny, Andrea, Crystal, Stephanie, Micarlé, Naomi) — that's the homepage "Mentors" section as designed. Contributors/"Team" is the separate, existing page (`content/pages/contributors.md`, ~1,090 words) for the broader roster of writers and photographers who write for the magazine. Keep both — don't merge them. Given the main nav is already getting full (Subscribe, Read, Mentors, Shop, Advertise), consider keeping Contributors out of the primary nav and linking it instead from the footer and from Our Story, rather than adding a sixth top-level item — your call.
+- **Shop → the advertiser Directory**, not a generic storefront. This is the page print QR codes will point to, so it needs a stable URL and to be easy to update every issue without a developer. Build it as a categorised grid of advertiser cards (logo, one line, link out) — the same content currently sitting in the "Natural Parenting Directory" section on the homepage export, just promoted to its own page. Structure it once in the Builder as a template card, then duplicate/edit per new advertiser or per-issue feature; no plugin or custom post type needed to move fast.
+- **"Brands we love" (or a new name) stays on the homepage, separate from the Shop/Directory page.** This is the paid homepage-placement inclusion in certain ad packages — a small, fixed logo strip, not the full categorised directory. It's already in `Home 2026` as the "For brands" section; keep it, just confirm a final name if "Brands we love" doesn't fit anymore (e.g. "Brands we back," "In good company").
+
+## The advertiser Directory (Shop)
+
+Because print QR codes will point straight at this page and it needs a new advertorial feature added every issue, keep the build dead simple: one card component (logo/image, brand name, one-line description, category tag, outbound link) built once in Fusion Builder, then copied and edited for each advertiser. Group by category (matching whatever categories the current homepage directory images use). This avoids depending on Nara's future automation to keep it current — anyone can duplicate a card between issues.
+
+## Blog: rebrand the frame, not the copy
+
+Two separable jobs here, and they're very different in size:
+
+- **Re-skinning the blog template (fast, one-time, applies to all 43 posts automatically).** This is just the Blog → Blog Post Title and Blog archive/grid typography settings (already specified in the Typography + Colour Spec) plus rebuilding the Blog element on the homepage and the archive page with the new card design (rounded image, 5:4 ratio, category label, Playfair title) from the Page Build Sheet. Zero per-post work — every existing post inherits it the moment the template changes. **Copy stays as written**, per your call — don't rewrite the 43 posts.
+- **Swapping featured images (real, per-post work, proportional to how many posts you do).** This is the part that's "a big job" if you do all 43 at once. Fastest path: don't block the site launch on this. Do the **3 posts already featured on the homepage blog teaser** first (Sleep/Feeding/Connection in the current mock, or whichever 3 you actually feature), since those are the highest-visibility ones, ship the site, then work through the remaining 40 progressively afterwards — clients seeing the relaunch won't be looking at every archive post on day one. If sourcing new photography for 43 posts isn't realistic soon, on-brand AI-generated or stock imagery (warm, natural light, matching the `.ph` placeholder style already used in the mockups) is a reasonable stand-in until real photography exists for each.
+
+## Ask Nara — decouple from the Nara SaaS build
+
+Claude's mockup put a live "Ask Nara" search box on the homepage, but that assumes the Nara SaaS's AI search backend — which is a separate nine-month build and isn't ready. Don't block this website on it. For the relaunch:
+
+- **Fastest, and recommended:** replace that homepage slot with a "coming soon" tease instead of a working input — e.g. "Ask Nara — our AI-powered search across 14 years of back issues, launching soon." This costs nothing to build, sets correct expectations, and does real work for you strategically: it signals momentum on the relaunch (which is exactly the message you want right now) without needing any backend.
+- **If you want something functional now instead of a tease:** the honest fastest option is plain WordPress search scoped to the blog/back-issues content (native search, or a lightweight search plugin) — but that's keyword search, not AI, so don't call it "Ask Nara" if it isn't. A real AI/RAG search over the archive is a genuine separate build, not something to bolt on quickly alongside the visual relaunch — treat it as a Nara SaaS deliverable, shipped when Nara ships, as you already suspected.
+- Keep the newsletter half of that homepage section (the ConvertKit "Join the Hive" embed) — that's already live and unaffected by any of this.
+
+## Lead capture & integrations (interim, pre-Nara)
+
+- **Media kit download** (from the Advertise page's "Request the media kit" button, and the homepage "For brands" section) → **Tally.so** form. Embed or link out; capture the fields you need (name, brand, package interest) before releasing the kit.
+- **eNews / newsletter signup** → **ConvertKit**, already live on the current site as "The Hive" (`the-nurture-parenting-magazine-hive.kit.com` — the embed script is already in `content/pages/home.md`, base64-encoded at the bottom of the file). Reuse this embed as-is in the new "The letter" section of the rebuilt homepage rather than rebuilding it.
+- Both are explicitly interim. Don't build custom integration work between Tally/ConvertKit and anything else right now — plan for Nara to eventually take over lead forms, the interactive media kit and chatbot/agentic sales once it ships, and keep these two simple tools decoupled from everything else until then.
 
 ## On "a really exciting new parenting journey"
 
-The approved direction already delivers this, and redesigning further now would slow you down rather than speed you up:
+The approved direction already delivers most of this, and redesigning further now would slow you down rather than speed you up:
 
-- **Ask Nara** — a searchable archive across 14 years of back issues, every answer citing its source issue. This is the standout differentiator; make sure it's placed prominently (homepage + its own accessible entry point, not buried).
 - **The 3D cover shelf** — three issue covers overlapping and parting on hover, real depth via `perspective`/`transform-style: preserve-3d` (already working in the `Home 2026` markup).
-- **Mentors, named** — six practitioners answering under their own names rather than an anonymous "expert panel."
+- **Mentors, named** — six practitioners answering under their own names rather than an anonymous "expert panel," tied to the real monthly live Q&A in the private group.
 - **The sustainability story (Print / Post / Planted)** — concrete and checkable rather than a vague eco-badge.
 - **Warm photographic fades** replacing the dated curved section dividers site-wide.
+- **The "Ask Nara — coming soon" tease** itself does journey-building work here: it tells returning visitors and advertisers that the brand is mid-relaunch and something bigger is coming, without needing the SaaS finished.
 
-If you want one further stretch enhancement without slowing the build: lightweight "stage of parenting" filter chips (pregnancy / newborn / toddler / school-age) on the blog grid, reusing the existing four-domain (Emotional/Intellectual/Physical/Spiritual) taxonomy already established in the copy — this is additive to the current plan, not a redesign, so it can be layered on after the pages above are live.
+One further stretch enhancement, additive only, layer on after the pages above are live: lightweight "stage of parenting" filter chips (pregnancy / newborn / toddler / school-age) on the blog grid, reusing the existing four-domain (Emotional/Intellectual/Physical/Spiritual) taxonomy already established in the copy.
