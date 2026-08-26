@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Nurture — motion system (entrances, ambient loops, scroll reveals)
+   Paste this whole block into Avada → Options → Custom CSS.
+
+   How it works with Fusion Builder, in three steps:
+   1. Paste this file into Custom CSS (once, site-wide).
+   2. Paste motion.js into Avada → Options → Advanced → Custom JS / footer
+      scripts (once, site-wide) — or a Code Block element if you'd rather
+      scope it to one page.
+   3. On the page, select an element/container in Fusion Builder → Advanced
+      tab → "CSS Class" field → type one of the class names below
+      (e.g. "reveal", or "reveal" plus a delay like this element's inline
+      style equivalent — see the README for the exact recipe per class).
+
+   Nothing here requires editing a template file or a child theme — it is
+   plain CSS + one small vanilla JS file, exactly like the Custom CSS you
+   already use for typography.
+   ========================================================================== */
+
+:root{
+  --ease-editorial:cubic-bezier(.16,1,.3,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+@keyframes driftGlow{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(18px,-14px,0) scale(1.06)}100%{transform:translate3d(-16px,10px,0) scale(.98)}}
+@keyframes riseIn{to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes focusPull{0%{opacity:0;transform:scale(1.06);filter:blur(16px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+@keyframes dotPulse{0%,100%{opacity:1;text-shadow:0 0 0 rgba(203,177,165,0)}50%{opacity:.88;text-shadow:0 0 12px rgba(203,177,165,.6)}}
+@keyframes drawRule{to{transform:scaleX(1)}}
+@keyframes coverIn1{0%{opacity:0;transform:translate3d(-70px,44px,0) rotateZ(-7deg)}100%{opacity:1;transform:var(--rest)}}
+@keyframes coverIn2{0%{opacity:0;transform:translate3d(96px,-54px,0) rotateZ(9deg)}100%{opacity:1;transform:var(--rest)}}
+@keyframes coverIn3{0%{opacity:0;transform:translate3d(150px,64px,0) rotateZ(-11deg)}100%{opacity:1;transform:var(--rest)}}
+
+/* Ambient loop: add class "glow" to a decorative background blob element.
+   Add "glow-b" as a second class to vary a second blob's timing. */
+.glow{animation:driftGlow 22s var(--ease-editorial) infinite alternate;will-change:transform}
+.glow.glow-b{animation-duration:27s;animation-direction:alternate-reverse}
+
+/* Brand signature: add class "brand-dot" to the "." in the logo, wherever it appears. */
+.brand-dot{display:inline-block;animation:dotPulse 3.6s ease-in-out infinite;will-change:opacity}
+
+/* Hero kicker underline draw-in: add class "hero-kicker" to the small label above your H1. */
+.hero-kicker{position:relative;display:inline-block;padding-bottom:10px}
+.hero-kicker::after{content:"";position:absolute;left:50%;bottom:0;height:1px;width:64px;margin-left:-32px;background:var(--rose,#cbb1a5);transform-origin:center;transform:scaleX(0)}
+.js-motion .hero-kicker::after{animation:drawRule .7s var(--ease-editorial) .5s forwards}
+
+/* Nav link underline hover (optional, works with no extra classes on a <nav>) */
+nav a{position:relative;padding-bottom:4px}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--rose,#cbb1a5);transition:right .35s var(--ease-editorial)}
+nav a:hover::after{right:0}
+
+/* On-load hero choreography — plays once immediately, no scroll gate.
+   Add classes "rise rise-in" to each hero element (kicker, H1, lead
+   paragraph, button row). Stagger them with an inline style, e.g.
+   style="--rd:120ms" on the H1, "--rd:260ms" on the paragraph, etc. */
+.js-motion .rise{opacity:0;transform:translate3d(0,26px,0)}
+.js-motion .rise-in{animation:riseIn .9s var(--ease-editorial) var(--rd,0ms) forwards}
+
+/* Hero photo focus-pull: add class "hero-photo" to ONLY the very first,
+   above-the-fold hero image container. */
+.js-motion .hero-photo{animation:focusPull 1.3s var(--ease-editorial) .15s both}
+
+/* Scroll-triggered reveal — add class "reveal" to any card/section/heading
+   block. Add "reveal-photo" instead for a full-bleed feature photo (fade +
+   gentle scale, no rise). Stagger siblings with style="--rd:100ms" etc. */
+.js-motion .reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .9s var(--ease-editorial) var(--rd,0ms),transform .9s var(--ease-editorial) var(--rd,0ms)}
+.js-motion .reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.js-motion .reveal-photo{opacity:0;transform:scale(1.05)}
+.js-motion .reveal-photo.is-visible{opacity:1;transform:scale(1);transition:opacity 1.1s var(--ease-editorial),transform 1.1s var(--ease-editorial)}
+
+/* Magazine-cover-stack "assemble" effect — the exact markup this expects is
+   documented in the README (a ".shelf" container with 3 children carrying
+   classes "cov cv1" / "cov cv2" / "cov cv3" and a "--rest" inline custom
+   property holding each cover's resting transform). */
+.js-motion .shelf .cv1{opacity:0;transform:translate3d(-70px,44px,0) rotateZ(-7deg)}
+.js-motion .shelf .cv2{opacity:0;transform:translate3d(96px,-54px,0) rotateZ(9deg)}
+.js-motion .shelf .cv3{opacity:0;transform:translate3d(150px,64px,0) rotateZ(-11deg)}
+.js-motion .shelf.in-view .cv1{animation:coverIn1 1.05s var(--ease-spring) both}
+.js-motion .shelf.in-view .cv2{animation:coverIn2 1.05s var(--ease-spring) .12s both}
+.js-motion .shelf.in-view .cv3{animation:coverIn3 1.05s var(--ease-spring) .24s both}
+.cov.settled{animation:none}
+
+/* Micro-interactions — safe to keep even if you don't use anything else above. */
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--rose,#cbb1a5);outline-offset:3px;border-radius:8px}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .js-motion .rise,.js-motion .reveal,.js-motion .reveal-photo{opacity:1!important;transform:none!important;filter:none!important}
+  .js-motion .shelf .cov{opacity:1!important;transform:var(--rest)!important}
+  .hero-kicker::after{transform:scaleX(1)!important}
+}
