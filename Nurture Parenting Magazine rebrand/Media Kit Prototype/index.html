@@ -299,6 +299,7 @@ nav a:hover::after{right:0}
         <h3 style="font-size:19px">Pay &amp; book now</h3>
         <p>Ready to go? Secure your issue(s) with Stripe and we'll confirm your booking by email within one business day.</p>
         <a href="https://cal.com/nurturemagazine/30min" class="cta" id="stripeBtn" target="_blank" rel="noopener">Book a call to confirm &amp; pay</a>
+        <p id="stripeNote" style="display:none;font-size:12px;color:#8c6f61;margin:0;line-height:1.55;font-weight:500"></p>
       </div>
       <div class="glass card-lift action-card">
         <span class="ico">🎨</span>
@@ -343,19 +344,25 @@ nav a:hover::after{right:0}
    is never broken and never takes a payment you haven't wired up.
    ===================================================================== */
 window.NURTURE_STRIPE_LINKS = {
-  // quarter:        "https://buy.stripe.com/xxxxxxxx",
-  // half:           "https://buy.stripe.com/xxxxxxxx",
-  // full:           "https://buy.stripe.com/xxxxxxxx",
-  // dps:             "https://buy.stripe.com/xxxxxxxx",
-  // multisplit:      "https://buy.stripe.com/xxxxxxxx",
-  // ausmade:         "https://buy.stripe.com/xxxxxxxx",
-  // mamabubba:       "https://buy.stripe.com/xxxxxxxx",
-  // selflove:        "https://buy.stripe.com/xxxxxxxx",
-  // loveoflearning:  "https://buy.stripe.com/xxxxxxxx",
-  // changemakers:    "https://buy.stripe.com/xxxxxxxx",
-  // showcase:        "https://buy.stripe.com/xxxxxxxx",
-  // default:         "https://buy.stripe.com/xxxxxxxx"
+  quarter:        "https://buy.stripe.com/28EdR25NMevi8ly8M56oo0h", // Flag 1/4
+  half:           "https://buy.stripe.com/28EaEQ3FE86U7hu5zT6oo0i", // Flag 1/2
+  full:           "https://buy.stripe.com/28E3co2BAgDq8lyd2l6oo0n", // Flag FP
+  dps:            "https://buy.stripe.com/fZu4gsgsqaf28lygex6oo0o", // Flag DPS
+  multisplit:     "https://buy.stripe.com/7sY00c5NMgDqcBO4vP6oo0p", // The Collective
+  ausmade:        "https://buy.stripe.com/3cIcMYfom5YM45iaUd6oo0q", // Aus Made
+  mamabubba:      "https://buy.stripe.com/6oUdR2fomevi45i5zT6oo0r", // Essentials
+  selflove:       "https://buy.stripe.com/8x2dR21xw86UcBOaUd6oo0s", // Self Love
+  loveoflearning: "https://buy.stripe.com/6oUaEQ7VU86UdFS7I16oo0t", // Love of Learning
+  changemakers:   "https://buy.stripe.com/6oUdR28ZY3QE9pCd2l6oo0u", // Changemakers
+  showcase:       "https://buy.stripe.com/28E4gs6RQ3QE31egex6oo0J"  // Showcase
+  // default: "https://buy.stripe.com/xxxxxxxx" -- optional: one link used when
+  // no per-package link is set (not needed now, all 11 packages are wired).
 };
+
+/* Multi-issue discount -> the matching Stripe Promotion Code you already
+   use today. Each Payment Link above needs "Allow promotion codes" turned
+   on in Stripe for these to apply automatically via the URL. */
+var NURTURE_PROMO_CODES = { 2: '2ISSUES', 3: '3ISSUES', 4: '4ISSUES', 5: '5ISSUES', 6: '6ISSUES' };
 </script>
 <script>
 (function(){
@@ -566,16 +573,29 @@ window.NURTURE_STRIPE_LINKS = {
     document.getElementById('perIssue').textContent = (pkg && state.issues > 1) ? currency(total / state.issues) + ' per issue' : '';
 
     var stripeBtn = document.getElementById('stripeBtn');
+    var stripeNote = document.getElementById('stripeNote');
     var link = pkg ? stripeConfig[pkg.id] : stripeConfig['default'];
     if (link) {
-      stripeBtn.href = link;
+      var promo = NURTURE_PROMO_CODES[state.issues];
+      stripeBtn.href = link + (promo ? '?prefilled_promo_code=' + promo : '');
       stripeBtn.textContent = 'Book & pay securely';
+      if (state.issues > 1) {
+        stripeNote.textContent = 'On the Stripe checkout page, set quantity to ' + state.issues + ' (' + state.issues + ' issues) — the ' + promo + ' discount will already be applied.';
+        stripeNote.style.display = 'block';
+      } else {
+        stripeNote.style.display = 'none';
+      }
+      if (guideCount || state.addons) {
+        stripeNote.textContent += (stripeNote.textContent ? ' ' : '') + 'Add your gift guide(s) / digital add-ons as optional items on the same checkout.';
+        stripeNote.style.display = 'block';
+      }
     } else {
-      // No Stripe link configured yet for this package — fall back to
-      // booking a call so the button always does something useful and
+      // No Stripe link configured yet for this package/selection — fall back
+      // to booking a call so the button always does something useful and
       // never mislabels an artwork request as a payment/booking action.
       stripeBtn.href = 'https://cal.com/nurturemagazine/30min';
-      stripeBtn.textContent = 'Book a call to confirm & pay';
+      stripeBtn.textContent = pkg ? 'Book a call to confirm & pay' : 'Talk to us about a digital-only campaign';
+      stripeNote.style.display = 'none';
     }
   }
 
