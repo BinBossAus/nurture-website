@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nurture — Media Kit &amp; Booking 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%233a2d28'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23cbb1a5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--ivory:#fdfbf7; --espresso:#3a2d28; --clay:rgba(215,203,194,.35); --clay-solid:#d7cbc2;
+--rose:#cbb1a5; --muted:rgba(58,45,40,.6); --deep:#2a201c;
+--serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+--ease-editorial:cubic-bezier(.16,1,.3,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);font-family:var(--sans);color:var(--espresso);font-size:16px;line-height:1.6;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--espresso);text-decoration:none}
+a:hover{color:#8c6f61}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.02em;line-height:1.15}
+.ph{background:linear-gradient(160deg,#efe7e0,#e4d9d1 60%,#d9ccc3);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ph b{font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(58,45,40,.42);padding:14px 16px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(to bottom,rgba(253,251,247,0),var(--ivory));pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(203,177,165,.42),rgba(203,177,165,0) 70%);pointer-events:none;filter:blur(4px);transform:translate3d(0,0,0);will-change:transform;animation:driftGlow 22s var(--ease-editorial) infinite alternate}
+.glow.glow-b{animation-duration:27s;animation-direction:alternate-reverse}
+.glass{background:rgba(253,251,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--clay);border-radius:20px;box-shadow:0 10px 30px rgba(45,36,32,.05),inset 0 1px 0 rgba(255,255,255,.6)}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--rose);color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:17px 32px;border:0;border-radius:40px;cursor:pointer;box-shadow:0 4px 20px rgba(203,177,165,.28);transition:background .35s,color .35s,box-shadow .35s,transform .35s}
+.cta:hover{background:var(--espresso);color:var(--ivory);box-shadow:0 8px 28px rgba(203,177,165,.34);transform:translateY(-2px)}
+.cta:active{transform:translateY(0) scale(.96);box-shadow:0 2px 10px rgba(203,177,165,.3)}
+.ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--espresso);font:500 13px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;padding:16px 30px;border:1px solid rgba(58,45,40,.22);border-radius:40px;cursor:pointer;transition:border-color .35s,background .35s,transform .35s}
+.ghost:hover{border-color:var(--rose);background:rgba(203,177,165,.09);transform:translateY(-2px)}
+.ghost:active{transform:translateY(0) scale(.96)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:8px}
+.k{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#a98a7b;margin:0 0 20px}
+.lead{font-size:18px;line-height:1.75;color:var(--muted);margin:0}
+.sec{padding:104px 72px;max-width:1180px;margin:0 auto}
+.hr{height:1px;background:var(--clay);border:0;margin:0;max-width:1180px}
+.card-lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(45,36,32,.09)}
+.card-lift:active{transform:translateY(-1px) scale(.996)}
+input[type=text],input[type=email],input[type=number],select{background:rgba(253,251,247,.9);border:1px solid rgba(215,203,194,.55);color:var(--espresso);border-radius:12px;padding:15px 18px;font:400 15px var(--sans);outline:none;transition:border-color .3s,box-shadow .3s;width:100%}
+input:focus,select:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(203,177,165,.22)}
+.fig{font-family:var(--serif);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+
+/* ---- pill / segmented controls for the calculator ---- */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pkg-card{position:relative;cursor:pointer;padding:20px 20px;border-radius:16px;border:1px solid var(--clay);background:rgba(253,251,247,.6);transition:border-color .3s,background .3s,transform .3s,box-shadow .3s;text-align:left}
+.pkg-card:hover{transform:translateY(-2px);border-color:rgba(203,177,165,.7)}
+.pkg-card h4{font-size:16px;line-height:1.3}
+.pkg-card .price{display:block;margin-top:8px;font-family:var(--serif);font-size:22px}
+.pkg-card .price small{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:4px}
+.pkg-card.is-selected{border-color:var(--rose);background:rgba(203,177,165,.14);box-shadow:0 10px 30px rgba(203,177,165,.18),inset 0 1px 0 rgba(255,255,255,.6)}
+.pkg-card.is-selected::after{content:"✓";position:absolute;top:14px;right:16px;width:22px;height:22px;border-radius:50%;background:var(--espresso);color:var(--ivory);font-size:12px;display:flex;align-items:center;justify-content:center}
+.pkg-group-label{font:600 12px/1 var(--sans);letter-spacing:.06em;color:var(--espresso);margin:34px 0 14px}
+.pkg-group-label:first-child{margin-top:0}
+
+.issue-toggle{display:inline-flex;background:rgba(215,203,194,.28);border-radius:40px;padding:5px;gap:2px}
+.issue-toggle button{border:0;background:transparent;padding:11px 18px;border-radius:36px;font:500 13.5px/1 var(--sans);color:var(--muted);cursor:pointer;transition:background .3s,color .3s;position:relative}
+.issue-toggle button.is-active{background:var(--espresso);color:var(--ivory)}
+.issue-toggle button .save{display:block;font-size:10px;letter-spacing:.04em;margin-top:2px;opacity:.75}
+
+.addon-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--clay)}
+.addon-row:last-child{border-bottom:0}
+.addon-row label{display:flex;align-items:center;gap:12px;font-size:14.5px;cursor:pointer}
+.addon-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--rose);cursor:pointer}
+.size-select{display:flex;gap:6px}
+.size-select button{border:1px solid rgba(58,45,40,.22);background:transparent;border-radius:20px;padding:6px 13px;font:500 11.5px var(--sans);cursor:pointer;color:var(--muted);transition:all .25s}
+.size-select button.is-active{background:var(--espresso);color:var(--ivory);border-color:var(--espresso)}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:30px;height:30px;border-radius:50%;border:1px solid rgba(58,45,40,.22);background:transparent;cursor:pointer;font-size:16px;line-height:1;color:var(--espresso);transition:all .25s}
+.stepper button:hover{border-color:var(--rose);background:rgba(203,177,165,.12)}
+.stepper span{min-width:18px;text-align:center;font:500 14px var(--sans)}
+
+.calc-summary{position:sticky;top:24px}
+.summary-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;font-size:14.5px;border-bottom:1px solid var(--clay)}
+.summary-row.total{border-bottom:0;padding-top:20px;margin-top:6px;border-top:1px solid rgba(58,45,40,.18)}
+.summary-row.total .amt{font-family:var(--serif);font-size:32px}
+.summary-row .amt{font-variant-numeric:tabular-nums;transition:opacity .25s}
+.summary-row .amt.is-updating{opacity:.35}
+.discount-chip{display:inline-block;background:rgba(203,177,165,.22);color:#8c6f61;font:600 11.5px/1 var(--sans);letter-spacing:.03em;padding:5px 11px;border-radius:20px;margin-left:8px}
+
+.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.action-card{padding:32px 26px;border-radius:20px;text-align:left;display:flex;flex-direction:column;gap:14px;height:100%}
+.action-card .ico{width:44px;height:44px;border-radius:50%;background:rgba(203,177,165,.22);display:flex;align-items:center;justify-content:center;font-size:19px}
+.action-card p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0;flex:1}
+.action-card .cta,.action-card .ghost{padding:13px 22px;font-size:11.5px;width:100%}
+
+@media (max-width:900px){
+  .sec{padding:80px 28px}
+  .pkg-grid{grid-template-columns:repeat(2,1fr)}
+  .action-grid{grid-template-columns:repeat(2,1fr)}
+  section[style*="grid-template-columns:minmax(0,5fr)"]{display:block!important}
+  section[style*="minmax(0,5fr) minmax(0,6fr)"] > div{grid-template-columns:1fr!important}
+}
+@media (max-width:600px){
+  .pkg-grid{grid-template-columns:1fr}
+  .action-grid{grid-template-columns:1fr}
+}
+
+/* ---------------------------------------------------------------
+   Motion system — same brand-journey language as the homepage
+   prototype. Progressive enhancement only: with no JS the page is
+   fully static and fully usable (nothing is hidden behind JS).
+   --------------------------------------------------------------- */
+@keyframes driftGlow{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(18px,-14px,0) scale(1.06)}100%{transform:translate3d(-16px,10px,0) scale(.98)}}
+@keyframes riseIn{to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes dotPulse{0%,100%{opacity:1;text-shadow:0 0 0 rgba(203,177,165,0)}50%{opacity:.88;text-shadow:0 0 12px rgba(203,177,165,.6)}}
+@keyframes drawRule{to{transform:scaleX(1)}}
+
+.brand-dot{display:inline-block;animation:dotPulse 3.6s ease-in-out infinite;will-change:opacity}
+.hero-kicker{position:relative;display:inline-block;padding-bottom:10px}
+.hero-kicker::after{content:"";position:absolute;left:50%;bottom:0;height:1px;width:64px;margin-left:-32px;background:var(--rose);transform-origin:center;transform:scaleX(0)}
+.js-motion .hero-kicker::after{animation:drawRule .7s var(--ease-editorial) .5s forwards}
+
+nav a{position:relative;padding-bottom:4px}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--rose);transition:right .35s var(--ease-editorial)}
+nav a:hover::after{right:0}
+
+.js-motion .rise{opacity:0;transform:translate3d(0,26px,0)}
+.js-motion .rise-in{animation:riseIn .9s var(--ease-editorial) var(--rd,0ms) forwards}
+
+.js-motion .reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .9s var(--ease-editorial) var(--rd,0ms),transform .9s var(--ease-editorial) var(--rd,0ms)}
+.js-motion .reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .js-motion .rise,.js-motion .reveal{opacity:1!important;transform:none!important}
+  .hero-kicker::after{transform:scaleX(1)!important}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js-motion')</script>
+
+<div style="position:relative;overflow:hidden">
+
+  <nav style="position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:26px 72px;max-width:1180px;margin:0 auto">
+    <span style="font-family:var(--serif);font-size:27px;font-weight:500;letter-spacing:-.02em">Nurture<span class="brand-dot" style="color:var(--rose)">.</span></span>
+    <div style="display:flex;gap:34px;font:500 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase">
+      <a href="#why">Why Nurture</a><a href="#rates">Rate card</a><a href="#calculator">Calculator</a><a href="#book">Book</a>
+    </div>
+    <a href="#calculator" class="cta" style="padding:14px 26px">Build my quote</a>
+  </nav>
+
+  <div class="glow" style="top:-260px;right:-180px;width:760px;height:760px"></div>
+  <div class="glow glow-b" style="top:900px;left:-260px;width:620px;height:620px;opacity:.55"></div>
+
+  <section style="position:relative;padding:64px 72px 0;max-width:1180px;margin:0 auto;text-align:center">
+    <span class="k hero-kicker rise rise-in" style="--rd:0ms">Media kit &amp; booking · 2026</span>
+    <h1 class="rise rise-in" style="--rd:120ms;font-size:clamp(38px,4.6vw,60px);max-width:24ch;margin:0 auto">A page here is a page they keep.</h1>
+    <p class="lead rise rise-in" style="--rd:260ms;max-width:56ch;margin:24px auto 0">Everything you need to book a campaign — real rates, an instant quote calculator, and three ways to move forward, without waiting on a PDF or a reply email.</p>
+    <div class="rise rise-in" style="--rd:400ms;display:flex;gap:16px;justify-content:center;margin-top:34px;flex-wrap:wrap">
+      <a href="#calculator" class="cta">Build my quote</a>
+      <a href="#book" class="ghost">Skip to booking</a>
+    </div>
+  </section>
+
+  <div class="reveal" style="max-width:1180px;margin:64px auto 0;padding:0 72px">
+    <div class="glass" style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:0;overflow:hidden;border-radius:20px">
+      <div style="padding:26px 20px;text-align:center;border-right:1px solid var(--clay)"><span class="fig" data-countto="30000" data-suffix="+">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">Print reach, annually</span></div>
+      <div style="padding:26px 20px;text-align:center;border-right:1px solid var(--clay)"><span class="fig" data-countto="20000" data-suffix="+">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">Digital newsstands</span></div>
+      <div style="padding:26px 20px;text-align:center;border-right:1px solid var(--clay)"><span class="fig" data-countto="600" data-suffix="+">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">National libraries</span></div>
+      <div style="padding:26px 20px;text-align:center;border-right:1px solid var(--clay)"><span class="fig" data-countto="72000" data-suffix="+">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">Combined social</span></div>
+      <div style="padding:26px 20px;text-align:center;border-right:1px solid var(--clay)"><span class="fig" data-countto="3000" data-suffix="+">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">Newsletter subscribers</span></div>
+      <div style="padding:26px 20px;text-align:center"><span class="fig" data-countto="1400" data-suffix="">0</span><span style="display:block;font-size:11.5px;color:var(--muted);margin-top:6px">Website, monthly views</span></div>
+    </div>
+  </div>
+
+  <section class="sec" id="why">
+    <div style="display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:72px;align-items:center">
+      <div class="reveal">
+        <span class="k">Why Nurture</span>
+        <h2 style="font-size:38px">A values-led audience, not an impression count</h2>
+        <p class="lead" style="margin-top:20px;max-width:46ch">Our readers care how a thing was made and who made it. They read a magazine they paid for, cover to cover, and they keep it — which means your page is still in the house six months after it printed.</p>
+        <p class="lead" style="margin-top:14px;max-width:46ch;font-size:15.5px">We don't sell space and step away. We write your story into the issue in a way that fits how our readers read, then send you a proof before every on-sale date.</p>
+      </div>
+      <div class="glass reveal card-lift" style="--rd:100ms;padding:38px">
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--clay);font-size:14.5px"><span>Product &amp; brand advertorial</span><strong>✓</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--clay);font-size:14.5px"><span>Digital &amp; print exposure + QR</span><strong>✓</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--clay);font-size:14.5px"><span>Social, website, EDM &amp; blog</span><strong>✓</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--clay);font-size:14.5px"><span>The Nurture Index listing (SEO)</span><strong>✓</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:14.5px"><span>Seasonal digital gift guides</span><strong>✓</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <section class="sec" id="rates">
+    <div class="reveal" style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="k">Rate card</span>
+      <h2 style="font-size:38px">Every package, every price, no PDF required</h2>
+      <p class="lead" style="margin-top:16px">Book one issue or six. Prices below are per issue — build a full quote with the calculator further down the page.</p>
+    </div>
+
+    <p class="pkg-group-label reveal" style="margin-top:56px">The Flagship — choose your ad size</p>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">¼ Page</h4><span class="fig" style="display:block;margin-top:8px;font-size:24px">$550</span><span style="font-size:11.5px;color:var(--muted)">per issue</span></div>
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">½ Page</h4><span class="fig" style="display:block;margin-top:8px;font-size:24px">$900</span><span style="font-size:11.5px;color:var(--muted)">per issue</span></div>
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">Full Page</h4><span class="fig" style="display:block;margin-top:8px;font-size:24px">$1,650</span><span style="font-size:11.5px;color:var(--muted)">per issue</span></div>
+      <div class="glass card-lift" style="padding:24px;border-color:rgba(203,177,165,.65)"><h4 style="font-size:16px">Double Page</h4><span class="fig" style="display:block;margin-top:8px;font-size:24px;color:#8c6f61">$3,000</span><span style="font-size:11.5px;color:var(--muted)">per issue</span></div>
+    </div>
+    <p class="lead reveal" style="font-size:14px;margin-top:16px">Includes a print ad, a Showcase advertorial + QR code at no charge, a Nurture Index SEO listing, a blog + Letter feature, and indefinite eMag distribution. Growing inclusions with every extra issue booked.</p>
+
+    <p class="pkg-group-label reveal" style="margin-top:52px">The Collective — a shared double-page spread</p>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(1,1fr);gap:14px;max-width:320px">
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">Double Page Spread</h4><span class="fig" style="display:block;margin-top:8px;font-size:24px">$3,000</span><span style="font-size:11.5px;color:var(--muted)">invoiced individually per brand</span></div>
+    </div>
+    <p class="lead reveal" style="font-size:14px;margin-top:16px">A DPS split across multiple brands, products, communities or publishers — each invoiced separately.</p>
+
+    <p class="pkg-group-label reveal" style="margin-top:52px">Showcase &amp; curated advertorial packages — written by us, you send the photos</p>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">Showcase</h4><span style="font-size:12px;color:var(--muted)">Tested on Humans / Team Picks</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$350<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">Australian Made</h4><span style="font-size:12px;color:var(--muted)">Buy local</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$400<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">The Essentials</h4><span style="font-size:12px;color:var(--muted)">New-parent short list</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$400<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">Self Love</h4><span style="font-size:12px;color:var(--muted)">Only Organics</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$450<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">Love of Learning</h4><span style="font-size:12px;color:var(--muted)">Education</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$425<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+      <div class="glass card-lift" style="padding:22px"><h4 style="font-size:15.5px">Changemakers</h4><span style="font-size:12px;color:var(--muted)">Back Stories</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">$750<small style="font-size:11px;font-family:var(--sans)">/issue</small></span></div>
+    </div>
+
+    <p class="pkg-group-label reveal" style="margin-top:52px">Digital gift guides — three times a year</p>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">Christmas Memory Makers</h4><span style="font-size:12px;color:var(--muted)">Launches October</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">From $150</span></div>
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">Mama's May, Naturally</h4><span style="font-size:12px;color:var(--muted)">Launches March</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">From $150</span></div>
+      <div class="glass card-lift" style="padding:24px"><h4 style="font-size:16px">Baby Shower Help Train</h4><span style="font-size:12px;color:var(--muted)">Launches September</span><span class="fig" style="display:block;margin-top:10px;font-size:21px">From $150</span></div>
+    </div>
+    <p class="lead reveal" style="font-size:14px;margin-top:16px">Small $150 · Medium $200 · Large $250 — eight-week campaigns, add to any print package and the same multi-issue discount applies. Every gift guide feature must offer readers at least 10% off with the code NURTURE.</p>
+
+    <div class="reveal" style="margin-top:52px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:center">
+      <div>
+        <span class="k" style="margin-bottom:10px">Book longer, pay less</span>
+        <h3 style="font-size:26px">Discounts stack automatically</h3>
+        <p class="lead" style="font-size:14.5px;margin-top:12px">Invoiced issue by issue, so the saving never costs you cash flow. Change your package or artwork between issues at no extra cost.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+        <div class="glass" style="padding:20px 10px;text-align:center"><span class="fig" style="font-size:22px">2%</span><span style="display:block;font-size:11px;color:var(--muted);margin-top:6px">2 issues</span></div>
+        <div class="glass" style="padding:20px 10px;text-align:center"><span class="fig" style="font-size:22px">4%</span><span style="display:block;font-size:11px;color:var(--muted);margin-top:6px">3 issues</span></div>
+        <div class="glass" style="padding:20px 10px;text-align:center"><span class="fig" style="font-size:22px">6%</span><span style="display:block;font-size:11px;color:var(--muted);margin-top:6px">4 issues</span></div>
+        <div class="glass" style="padding:20px 10px;text-align:center"><span class="fig" style="font-size:22px">8%</span><span style="display:block;font-size:11px;color:var(--muted);margin-top:6px">5 issues</span></div>
+        <div class="glass" style="padding:20px 10px;text-align:center;border-color:rgba(203,177,165,.65)"><span class="fig" style="font-size:22px;color:#8c6f61">10%</span><span style="display:block;font-size:11px;color:var(--muted);margin-top:6px">6 issues</span></div>
+      </div>
+    </div>
+
+    <p class="pkg-group-label reveal" style="margin-top:52px">Campaign add-ons — print discounts apply to all of them</p>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Social promo</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Giveaway collab</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">The Letter EDM</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Blog on social</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Website banners &amp; ads</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Nurture Index listing</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Product/app review</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center"><span style="font-size:13px">Audiobook sponsor</span><span class="fig" style="display:block;margin-top:6px;font-size:18px">$250</span></div>
+      <div class="glass" style="padding:18px;text-align:center;border-color:rgba(203,177,165,.65)"><span style="font-size:13px">Artwork design</span><span class="fig" style="display:block;margin-top:6px;font-size:18px;color:#8c6f61">$300</span></div>
+      <div class="glass" style="padding:18px;text-align:center;border-color:rgba(203,177,165,.65)"><span style="font-size:13px">Brand audit &amp; style guide</span><span class="fig" style="display:block;margin-top:6px;font-size:18px;color:#8c6f61">$300</span></div>
+    </div>
+    <p class="lead reveal" style="font-size:14px;margin-top:16px">Artwork design: $60/hr, minimum 5 hours ($300) — one concept, two revisions, delivered as a print-ready PDF plus the original file, so you own it. <strong>Free with any print booking:</strong> one Subscription Giveaway slot per issue (you supply gifts, $60+, for the first 30 annual subscribers) and access to the Sharing Kindness Challenge (a $350+ prize as part of a bundle) — just mention these on the booking form, they're not purchased separately.</p>
+  </section>
+
+  <hr class="hr">
+
+  <!-- ============================= CALCULATOR ============================= -->
+  <section class="sec" id="calculator">
+    <div class="reveal" style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="k">Instant quote</span>
+      <h2 style="font-size:38px">Build your campaign, watch the price move</h2>
+      <p class="lead" style="margin-top:16px">Pick a package, choose how many issues, add a gift guide if you want one — the total updates as you go. Nothing here is submitted until you choose how to proceed below.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:48px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:44px;align-items:start">
+
+      <div>
+        <p class="pkg-group-label" style="margin-top:0">1. Choose your package <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;font-size:12.5px">(optional — skip for a digital-only campaign)</span></p>
+        <div class="pkg-grid" id="pkgGrid" role="group" aria-label="Choose your advertising package"></div>
+
+        <p class="pkg-group-label">2. How many issues?</p>
+        <div class="issue-toggle" id="issueToggle" role="group" aria-label="Number of issues"></div>
+
+        <p class="pkg-group-label">3. Add a gift guide? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;font-size:12.5px">(optional, select any — must offer 10% off with code NURTURE)</span></p>
+        <div class="glass" style="padding:8px 26px" id="guideList"></div>
+
+        <p class="pkg-group-label">4. Campaign add-ons <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0;font-size:12.5px">($250 each, print discounts apply to all of them)</span></p>
+        <div class="glass" style="padding:8px 26px" id="addonList"></div>
+
+        <p class="pkg-group-label">5. Artwork &amp; brand services</p>
+        <div class="glass" style="padding:8px 26px">
+          <div class="addon-row">
+            <label><input type="checkbox" id="artworkCheckbox"> I don't have print-ready artwork — design it for me</label>
+            <strong>$300</strong>
+          </div>
+          <div class="addon-row">
+            <label><input type="checkbox" id="brandAuditCheckbox"> Brand audit &amp; style guide</label>
+            <strong>$300</strong>
+          </div>
+        </div>
+        <p class="lead" style="font-size:12.5px;margin-top:10px">Artwork design: $60/hr, 5hr minimum. One concept, two revisions, delivered print-ready plus the original file — it's yours to keep and reuse.</p>
+      </div>
+
+      <div class="glass calc-summary" style="padding:34px">
+        <span class="k" style="margin-bottom:18px">Your quote</span>
+        <div class="summary-row"><span id="pkgLabel">No package selected</span><span class="amt" id="pkgSub">$0</span></div>
+        <div class="summary-row"><span id="guideLabel">Gift guides</span><span class="amt" id="guideSub">$0</span></div>
+        <div class="summary-row"><span id="addonLabel">Campaign add-ons</span><span class="amt" id="addonSub">$0</span></div>
+        <div class="summary-row" id="artworkRowSummary" style="display:none"><span>Artwork design service</span><span class="amt" id="artworkSub">$0</span></div>
+        <div class="summary-row" id="brandAuditRowSummary" style="display:none"><span>Brand audit &amp; style guide</span><span class="amt" id="brandAuditSub">$0</span></div>
+        <div class="summary-row"><span>Multi-issue discount<span class="discount-chip" id="discountChip">0%</span></span><span class="amt" id="discountAmt">–$0</span></div>
+        <div class="summary-row total"><span>Total<span style="display:block;font-size:12px;color:var(--muted);font-family:var(--sans);margin-top:4px" id="perIssue"></span></span><span class="amt" id="totalAmt">$0</span></div>
+        <a href="#book" class="cta" style="width:100%;margin-top:22px" id="proceedBtn">Continue to booking</a>
+        <p style="font-size:12px;color:var(--muted);margin:14px 0 0;line-height:1.6">Estimate only — final invoice confirmed by our team before your on-sale date. GST not included.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- ============================= ACTION PANEL ============================= -->
+  <section class="sec" id="book">
+    <div class="reveal" style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="k">Ready to move forward?</span>
+      <h2 style="font-size:38px">Three ways in, one human team behind all of them</h2>
+      <p class="lead" style="margin-top:16px">Pick whichever fits how you like to work — every path lands with the same team, and we'll confirm your quote before anything is charged.</p>
+    </div>
+
+    <div class="action-grid reveal" style="margin-top:48px">
+      <div class="glass card-lift action-card">
+        <span class="ico">💳</span>
+        <h3 style="font-size:19px">Pay &amp; book now</h3>
+        <p>Ready to go? Secure your issue(s) with Stripe and we'll confirm your booking by email within one business day.</p>
+        <a href="https://cal.com/nurturemagazine/30min" class="cta" id="stripeBtn" target="_blank" rel="noopener">Book a call to confirm &amp; pay</a>
+        <p id="stripeNote" style="display:none;font-size:12px;color:#8c6f61;margin:0;line-height:1.55;font-weight:500"></p>
+      </div>
+      <div class="glass card-lift action-card">
+        <span class="ico">🎨</span>
+        <h3 style="font-size:19px">Need artwork made?</h3>
+        <p>No design team of your own? Tell us about your brand and we'll design your ad or advertorial for you.</p>
+        <a href="https://tally.so/r/mO2Pdg" class="cta" target="_blank" rel="noopener">Request artwork</a>
+      </div>
+      <div class="glass card-lift action-card">
+        <span class="ico">📁</span>
+        <h3 style="font-size:19px">Upload your files</h3>
+        <p>Already have print-ready artwork or brand assets? Send them straight through — no email attachments needed.</p>
+        <a href="https://www.dropbox.com/request/I5xeF1PHkZgTxOVxSStH" class="cta" target="_blank" rel="noopener">Upload artwork</a>
+      </div>
+      <div class="glass card-lift action-card">
+        <span class="ico">📞</span>
+        <h3 style="font-size:19px">Talk to a human first</h3>
+        <p>Not sure which package fits? Book a free 30-minute call and we'll help you choose.</p>
+        <a href="https://cal.com/nurturemagazine/30min" class="cta" target="_blank" rel="noopener">Book a call</a>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;font-size:13px;color:var(--muted);margin-top:34px">Prefer to book by promo code instead? Use <strong>2ISSUES</strong>, <strong>3ISSUES</strong>, <strong>4ISSUES</strong>, <strong>5ISSUES</strong> or <strong>6ISSUES</strong> at checkout for 2–10% off, invoiced issue by issue.</p>
+  </section>
+
+  <footer style="background:var(--espresso);color:rgba(253,251,247,.72);padding:64px 72px 40px;margin-top:20px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+      <div style="font-family:var(--serif);font-size:26px;font-weight:500;color:var(--ivory)">Nurture<span class="brand-dot" style="color:var(--rose)">.</span></div>
+      <p style="font-size:13px;margin:0">© 2012–2026 Nurture Global Pty Ltd · ABN 15 617 938 013</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* =====================================================================
+   STRIPE PAYMENT LINKS — edit this block once Stripe is confirmed.
+   Key = package id (quarter, half, full, dps, multisplit, ausmade,
+   mamabubba, selflove, loveoflearning, changemakers, showcase), value =
+   that package's Stripe Payment Link / Checkout URL. Add "default" for
+   one link that covers every package instead. Any package left out
+   falls back to the artwork/booking request form below, so the button
+   is never broken and never takes a payment you haven't wired up.
+   ===================================================================== */
+window.NURTURE_STRIPE_LINKS = {
+  quarter:        "https://buy.stripe.com/28EdR25NMevi8ly8M56oo0h", // Flag 1/4
+  half:           "https://buy.stripe.com/28EaEQ3FE86U7hu5zT6oo0i", // Flag 1/2
+  full:           "https://buy.stripe.com/28E3co2BAgDq8lyd2l6oo0n", // Flag FP
+  dps:            "https://buy.stripe.com/fZu4gsgsqaf28lygex6oo0o", // Flag DPS
+  multisplit:     "https://buy.stripe.com/7sY00c5NMgDqcBO4vP6oo0p", // The Collective (renamed from Split Budgets)
+  ausmade:        "https://buy.stripe.com/3cIcMYfom5YM45iaUd6oo0q", // Aus Made
+  mamabubba:      "https://buy.stripe.com/6oUdR2fomevi45i5zT6oo0r", // Essentials
+  selflove:       "https://buy.stripe.com/8x2dR21xw86UcBOaUd6oo0s", // Self Love
+  loveoflearning: "https://buy.stripe.com/6oUaEQ7VU86UdFS7I16oo0t", // Love of Learning
+  changemakers:   "https://buy.stripe.com/6oUdR28ZY3QE9pCd2l6oo0u", // Changemakers
+  showcase:       "https://buy.stripe.com/28E4gs6RQ3QE31egex6oo0J", // Showcase
+  digitalOnly:    "https://buy.stripe.com/4gM00c0ts1Iw0T67I16oo0K"  // Digital Campaign (no print package)
+  // default:    "https://buy.stripe.com/xxxxxxxx", -- optional: one link used
+  //             when no per-package link is set (not needed, all 11 wired).
+};
+
+/* Multi-issue discount -> the matching Stripe Promotion Code you already
+   use today. Each Payment Link above needs "Allow promotion codes" turned
+   on in Stripe for these to apply automatically via the URL. */
+var NURTURE_PROMO_CODES = { 2: '2ISSUES', 3: '3ISSUES', 4: '4ISSUES', 5: '5ISSUES', 6: '6ISSUES' };
+</script>
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* ============ Scroll reveals ============ */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !hasIO) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function (el) { revealIO.observe(el); });
+  }
+
+  if (!reduceMotion && hasIO) {
+    var ambientEls = document.querySelectorAll('.glow, .brand-dot');
+    var ambientIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      });
+    }, { threshold: 0 });
+    ambientEls.forEach(function (el) { ambientIO.observe(el); });
+  }
+
+  /* ============ Stat count-up ============ */
+  var counters = document.querySelectorAll('[data-countto]');
+  function runCounter(el) {
+    var target = parseInt(el.getAttribute('data-countto'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) { el.textContent = target.toLocaleString() + suffix; return; }
+    var start = null, duration = 1400;
+    function frame(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  if (hasIO && counters.length) {
+    var countIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { runCounter(entry.target); countIO.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { countIO.observe(el); });
+  } else {
+    counters.forEach(runCounter);
+  }
+
+  /* =================================================================
+     INTERACTIVE QUOTE CALCULATOR
+     Rates below mirror the current published rate card. Edit PACKAGES,
+     GUIDE_SIZES or DISCOUNT_TIERS here to update pricing sitewide —
+     everything downstream (labels, totals, discount chip) recalculates
+     automatically, nothing else in this file needs to change.
+     ================================================================= */
+  var PACKAGES = [
+    { group: 'The Flagship — choose your ad size (includes a free Showcase feature)', items: [
+      { id: 'quarter', label: '¼ Page', price: 550 },
+      { id: 'half', label: '½ Page', price: 900 },
+      { id: 'full', label: 'Full Page', price: 1650 },
+      { id: 'dps', label: 'Double Page', price: 3000 }
+    ]},
+    { group: 'The Collective — shared double-page spread', items: [
+      { id: 'multisplit', label: 'The Collective (DPS)', price: 3000 }
+    ]},
+    { group: 'Showcase & curated advertorial packages — written by us', items: [
+      { id: 'showcase', label: 'Showcase', price: 350 },
+      { id: 'ausmade', label: 'Australian Made', price: 400 },
+      { id: 'mamabubba', label: 'The Essentials', price: 400 },
+      { id: 'selflove', label: 'Self Love', price: 450 },
+      { id: 'loveoflearning', label: 'Love of Learning', price: 425 },
+      { id: 'changemakers', label: 'Changemakers', price: 750 }
+    ]}
+  ];
+  var GUIDES = [
+    { id: 'christmas', label: 'Christmas Memory Makers Guide' },
+    { id: 'mamasmay', label: "Mama's May Guide" },
+    { id: 'babyshower', label: 'Baby Shower Help Train Guide' }
+  ];
+  var GUIDE_SIZES = { small: 150, medium: 200, large: 250 };
+  var DISCOUNT_TIERS = { 1: 0, 2: 0.02, 3: 0.04, 4: 0.06, 5: 0.08, 6: 0.10 };
+  var ADDONS = [
+    { id: 'social', label: 'Social promotions & blasts' },
+    { id: 'giveaway', label: 'Giveaway collaboration' },
+    { id: 'edm', label: 'The Letter — EDM promo' },
+    { id: 'blog', label: 'Blog, shared on social' },
+    { id: 'webads', label: 'Website banners & digital ads' },
+    { id: 'index', label: 'The Nurture Index listing' },
+    { id: 'review', label: 'Product, book or app review' },
+    { id: 'audiobook', label: 'Audiobook sponsorship' }
+  ];
+  var ADDON_PRICE = 250;
+  var ARTWORK_FEE = 300;
+  var BRAND_AUDIT_FEE = 300;
+
+  var state = { packageId: null, issues: 1, guides: {}, addons: {}, artwork: false, brandAudit: false };
+
+  var pkgGrid = document.getElementById('pkgGrid');
+  var currency = function (n) { return '$' + Math.round(n).toLocaleString(); };
+  var allPackages = [];
+  PACKAGES.forEach(function (group) {
+    var groupLabel = document.createElement('p');
+    groupLabel.className = 'pkg-group-label';
+    groupLabel.style.gridColumn = '1 / -1';
+    groupLabel.style.marginTop = pkgGrid.childElementCount ? '18px' : '0';
+    groupLabel.style.marginBottom = '0';
+    groupLabel.textContent = group.group;
+    pkgGrid.appendChild(groupLabel);
+    group.items.forEach(function (item) {
+      allPackages.push(item);
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'pkg-card';
+      card.setAttribute('data-id', item.id);
+      card.innerHTML = '<h4>' + item.label + '</h4><span class="price">' + currency(item.price) + '<small>/issue</small></span>';
+      card.addEventListener('click', function () {
+        state.packageId = (state.packageId === item.id) ? null : item.id;
+        render();
+      });
+      pkgGrid.appendChild(card);
+    });
+  });
+
+  var issueToggle = document.getElementById('issueToggle');
+  [1, 2, 3, 4, 5, 6].forEach(function (n) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    var pct = DISCOUNT_TIERS[n] * 100;
+    btn.innerHTML = n + (n === 1 ? ' issue' : ' issues') + (pct ? '<span class="save">save ' + pct + '%</span>' : '<span class="save">&nbsp;</span>');
+    btn.addEventListener('click', function () { state.issues = n; render(); });
+    btn.setAttribute('data-n', n);
+    issueToggle.appendChild(btn);
+  });
+
+  var guideList = document.getElementById('guideList');
+  GUIDES.forEach(function (guide) {
+    var row = document.createElement('div');
+    row.className = 'addon-row';
+    row.innerHTML =
+      '<label><input type="checkbox" data-guide="' + guide.id + '"> ' + guide.label + '</label>' +
+      '<div class="size-select" data-guide-sizes="' + guide.id + '">' +
+        '<button type="button" data-size="small">S · $150</button>' +
+        '<button type="button" data-size="medium">M · $200</button>' +
+        '<button type="button" data-size="large">L · $250</button>' +
+      '</div>';
+    guideList.appendChild(row);
+    var checkbox = row.querySelector('input[type=checkbox]');
+    var sizeBtns = row.querySelectorAll('[data-size]');
+    checkbox.addEventListener('change', function () {
+      if (checkbox.checked) {
+        state.guides[guide.id] = state.guides[guide.id] || 'small';
+      } else {
+        delete state.guides[guide.id];
+      }
+      render();
+    });
+    sizeBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        checkbox.checked = true;
+        state.guides[guide.id] = b.getAttribute('data-size');
+        render();
+      });
+    });
+  });
+
+  var addonList = document.getElementById('addonList');
+  ADDONS.forEach(function (addon) {
+    var row = document.createElement('div');
+    row.className = 'addon-row';
+    row.innerHTML = '<label><input type="checkbox" data-addon="' + addon.id + '"> ' + addon.label + '</label><strong>$' + ADDON_PRICE + '</strong>';
+    addonList.appendChild(row);
+    row.querySelector('input[type=checkbox]').addEventListener('change', function (e) {
+      if (e.target.checked) { state.addons[addon.id] = true; } else { delete state.addons[addon.id]; }
+      render();
+    });
+  });
+
+  document.getElementById('artworkCheckbox').addEventListener('change', function (e) { state.artwork = e.target.checked; render(); });
+  document.getElementById('brandAuditCheckbox').addEventListener('change', function (e) { state.brandAudit = e.target.checked; render(); });
+
+  var stripeConfig = window.NURTURE_STRIPE_LINKS || {};
+
+  function render() {
+    // package cards
+    pkgGrid.querySelectorAll('.pkg-card').forEach(function (card) {
+      card.classList.toggle('is-selected', card.getAttribute('data-id') === state.packageId);
+    });
+    // issue toggle
+    issueToggle.querySelectorAll('button').forEach(function (btn) {
+      btn.classList.toggle('is-active', parseInt(btn.getAttribute('data-n'), 10) === state.issues);
+    });
+    // guide size buttons
+    guideList.querySelectorAll('[data-guide-sizes]').forEach(function (wrap) {
+      var id = wrap.getAttribute('data-guide-sizes');
+      wrap.querySelectorAll('button').forEach(function (b) {
+        b.classList.toggle('is-active', state.guides[id] === b.getAttribute('data-size'));
+      });
+    });
+    // addon checkboxes
+    addonList.querySelectorAll('[data-addon]').forEach(function (cb) {
+      cb.checked = !!state.addons[cb.getAttribute('data-addon')];
+    });
+
+    var pkg = allPackages.find(function (p) { return p.id === state.packageId; });
+
+    var pkgTotal = pkg ? pkg.price * state.issues : 0;
+    var guideTotal = Object.keys(state.guides).reduce(function (sum, id) {
+      return sum + (GUIDE_SIZES[state.guides[id]] || 0);
+    }, 0);
+    var addonCount = Object.keys(state.addons).length;
+    var addonTotal = addonCount * ADDON_PRICE;
+    var artworkTotal = state.artwork ? ARTWORK_FEE : 0;
+    var brandAuditTotal = state.brandAudit ? BRAND_AUDIT_FEE : 0;
+    var subtotal = pkgTotal + guideTotal + addonTotal + artworkTotal + brandAuditTotal;
+    var discountPct = pkg ? DISCOUNT_TIERS[state.issues] : 0;
+    var discountAmt = subtotal * discountPct;
+    var total = subtotal - discountAmt;
+
+    document.getElementById('pkgLabel').textContent = pkg ? (pkg.label + ' × ' + state.issues + (state.issues === 1 ? ' issue' : ' issues')) : 'No package selected yet';
+    document.getElementById('pkgSub').textContent = currency(pkgTotal);
+    var guideCount = Object.keys(state.guides).length;
+    document.getElementById('guideLabel').textContent = 'Gift guides' + (guideCount ? ' (' + guideCount + ')' : '');
+    document.getElementById('guideSub').textContent = currency(guideTotal);
+    document.getElementById('addonLabel').textContent = 'Campaign add-ons' + (addonCount ? ' (' + addonCount + ')' : '');
+    document.getElementById('addonSub').textContent = currency(addonTotal);
+    document.getElementById('artworkRowSummary').style.display = artworkTotal ? 'flex' : 'none';
+    document.getElementById('artworkSub').textContent = currency(artworkTotal);
+    document.getElementById('brandAuditRowSummary').style.display = brandAuditTotal ? 'flex' : 'none';
+    document.getElementById('brandAuditSub').textContent = currency(brandAuditTotal);
+    document.getElementById('discountChip').textContent = Math.round(discountPct * 100) + '%';
+    document.getElementById('discountAmt').textContent = discountAmt ? '–' + currency(discountAmt) : '–$0';
+    document.getElementById('totalAmt').textContent = currency(total);
+    document.getElementById('perIssue').textContent = (pkg && state.issues > 1) ? currency(total / state.issues) + ' per issue' : '';
+
+    var stripeBtn = document.getElementById('stripeBtn');
+    var stripeNote = document.getElementById('stripeNote');
+    var link = pkg ? stripeConfig[pkg.id] : stripeConfig['default'];
+    var extras = addonCount || artworkTotal || brandAuditTotal;
+    if (link) {
+      var promo = NURTURE_PROMO_CODES[state.issues];
+      stripeBtn.href = link + (promo ? '?prefilled_promo_code=' + promo : '');
+      stripeBtn.textContent = 'Book & pay securely';
+      if (state.issues > 1) {
+        stripeNote.textContent = 'On the Stripe checkout page, set quantity to ' + state.issues + ' (' + state.issues + ' issues) — the ' + promo + ' discount will already be applied.';
+        stripeNote.style.display = 'block';
+      } else {
+        stripeNote.style.display = 'none';
+      }
+      if (guideCount || extras) {
+        stripeNote.textContent += (stripeNote.textContent ? ' ' : '') + 'Add your gift guide(s) and any add-ons (artwork, brand audit, campaign activities) as optional items on the same checkout — use the note field to say which ones.';
+        stripeNote.style.display = 'block';
+      }
+    } else if (!pkg && (guideCount || extras) && stripeConfig['digitalOnly']) {
+      // No print package, but a gift guide / digital add-on is selected, and
+      // the standalone digital-campaign link has been configured — send them
+      // straight to Stripe rather than out to a call booking.
+      stripeBtn.href = stripeConfig['digitalOnly'];
+      stripeBtn.textContent = 'Book & pay for this digital campaign';
+      stripeNote.textContent = 'Add your chosen gift guide size and any digital activities as optional items on the Stripe checkout page.';
+      stripeNote.style.display = 'block';
+    } else {
+      // No Stripe link configured yet for this package/selection — fall back
+      // to booking a call so the button always does something useful and
+      // never mislabels an artwork request as a payment/booking action.
+      stripeBtn.href = 'https://cal.com/nurturemagazine/30min';
+      stripeBtn.textContent = pkg ? 'Book a call to confirm & pay' : 'Talk to us about a digital-only campaign';
+      stripeNote.style.display = 'none';
+    }
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
