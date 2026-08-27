@@ -355,8 +355,11 @@ window.NURTURE_STRIPE_LINKS = {
   loveoflearning: "https://buy.stripe.com/6oUaEQ7VU86UdFS7I16oo0t", // Love of Learning
   changemakers:   "https://buy.stripe.com/6oUdR28ZY3QE9pCd2l6oo0u", // Changemakers
   showcase:       "https://buy.stripe.com/28E4gs6RQ3QE31egex6oo0J"  // Showcase
-  // default: "https://buy.stripe.com/xxxxxxxx" -- optional: one link used when
-  // no per-package link is set (not needed now, all 11 packages are wired).
+  // default:    "https://buy.stripe.com/xxxxxxxx", -- optional: one link used
+  //             when no per-package link is set (not needed, all 11 wired).
+  // digitalOnly: "https://buy.stripe.com/xxxxxxxx" -- add this once you've run
+  //             stripe-setup-digital-addons.sh: routes gift-guide/add-on-only
+  //             campaigns (no print package selected) straight to Stripe.
 };
 
 /* Multi-issue discount -> the matching Stripe Promotion Code you already
@@ -589,6 +592,14 @@ var NURTURE_PROMO_CODES = { 2: '2ISSUES', 3: '3ISSUES', 4: '4ISSUES', 5: '5ISSUE
         stripeNote.textContent += (stripeNote.textContent ? ' ' : '') + 'Add your gift guide(s) / digital add-ons as optional items on the same checkout.';
         stripeNote.style.display = 'block';
       }
+    } else if (!pkg && (guideCount || state.addons) && stripeConfig['digitalOnly']) {
+      // No print package, but a gift guide / digital add-on is selected, and
+      // the standalone digital-campaign link has been configured — send them
+      // straight to Stripe rather than out to a call booking.
+      stripeBtn.href = stripeConfig['digitalOnly'];
+      stripeBtn.textContent = 'Book & pay for this digital campaign';
+      stripeNote.textContent = 'Add your chosen gift guide size and any digital activities as optional items on the Stripe checkout page.';
+      stripeNote.style.display = 'block';
     } else {
       // No Stripe link configured yet for this package/selection — fall back
       // to booking a call so the button always does something useful and
