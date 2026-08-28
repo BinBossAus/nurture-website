@@ -1,0 +1,14 @@
+{
+  "name": "Nurture Website — static preview",
+  "install": "python3 --version && test -f \"Nurture Parenting Magazine rebrand/support.js\" && echo \"No build step: static .dc.html mockups served as-is.\"",
+  "terminals": [
+    {
+      "name": "preview",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Static preview server for the Nurture rebrand pages, serving the repo root on port 8000. The .dc.html files render client-side via support.js (loads React 18 UMD from unpkg.com). Open e.g. http://localhost:8000/Nurture%20Parenting%20Magazine%20rebrand/Nurture%20Home%202026.dc.html"
+    }
+  ],
+  "ports": [
+    { "name": "preview", "port": 8000 }
+  ]
+}
