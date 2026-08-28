@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #3a2d28;
+  --color-bark: #2a221e;
+  --color-ivory: #f6f1ea;
+  --color-porcelain: #faf7f2;
+  --color-champagne: #f0e6d4;
+  --color-rose: #e5c1b3;
+  --color-moss: #3a4638;
+  --color-fg: #f6f1ea;
+  --color-bg: #3a2d28;
+  --font-sans: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+}
+
+@layer base {
+  html {
+    background: var(--color-espresso);
+    color: var(--color-ivory);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-rose) 55%, var(--color-espresso))
+      var(--color-espresso);
+  }
+
+  html::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: var(--color-espresso);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-rose) 55%, var(--color-espresso));
+    border-radius: 9999px;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--color-espresso);
+    color: var(--color-ivory);
+    /* Do NOT set overflow-x here: setting only one overflow axis on <body>
+       makes the browser auto-compute the other axis (overflow-y) to a
+       non-visible value, turning <body> into its own scroll container.
+       Real page scrolling happens on <html>/the window, so that phantom
+       body scroll container never itself scrolls — which breaks
+       `position: sticky` on any descendant (like .hero-stage), since the
+       sticky element resolves against the wrong, non-scrolling ancestor.
+       overflow-x is already clipped on <html> above, so this is redundant
+       anyway. */
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.hero-scroll {
+  position: relative;
+  height: 650vh;
+  background: var(--color-espresso);
+}
+
+.hero-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-espresso);
+}
+
+.hero-shot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.hero-shot.is-on {
+  opacity: 1;
+}
+
+.hero-media {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.hero-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video-portrait {
+  display: none;
+}
+
+@media (orientation: portrait) {
+  .hero-has-portrait > .hero-media > .hero-video-landscape {
+    display: none;
+  }
+
+  .hero-has-portrait > .hero-media > .hero-video-portrait {
+    display: block;
+  }
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    transparent 46%,
+    color-mix(in oklab, var(--color-espresso) 48%, transparent) 100%
+  );
+}
+
+.hero-grain {
+  position: absolute;
+  inset: -40%;
+  width: 180%;
+  height: 180%;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: overlay;
+  background-image: url("/hero/grain.png");
+  background-size: 240px 240px;
+  animation: hero-grain 0.48s steps(4) infinite;
+}
+
+.hero-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: color-mix(in oklab, var(--color-rose) 22%, transparent);
+  pointer-events: none;
+}
+
+.hero-progress-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--color-rose);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.hero-dots {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--color-ivory) 32%, transparent);
+  transform: scale(0.85);
+  transition:
+    background 250ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-dot.is-active {
+  background: var(--color-rose);
+  transform: scale(1.15);
+}
+
+.hero-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 1px solid color-mix(in oklab, var(--color-ivory) 55%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--color-ivory) 55%, transparent);
+  transform: rotate(45deg);
+  animation: hero-hint 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.hero-chevron:nth-child(2) {
+  margin-top: -0.35rem;
+  animation-delay: 0.18s;
+  opacity: 0.55;
+}
+
+.hero-mark {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.5rem;
+  width: 18px;
+  height: 22px;
+  opacity: 0.55;
+  pointer-events: none;
+  color: var(--color-rose);
+}
+
+@keyframes hero-grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-1.2%, 0.8%);
+  }
+  50% {
+    transform: translate(1%, -1%);
+  }
+  75% {
+    transform: translate(-0.6%, -0.4%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes hero-hint {
+  0%,
+  100% {
+    opacity: 0.2;
+    translate: 0 0;
+  }
+  40% {
+    opacity: 0.8;
+    translate: 0 5px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-dots {
+    right: 0.85rem;
+  }
+
+  .hero-mark {
+    left: 0.9rem;
+    bottom: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grain,
+  .hero-chevron {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
