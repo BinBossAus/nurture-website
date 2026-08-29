@@ -14,15 +14,10 @@ all 5 stages render correctly in order, sticky-pinned for the full scroll.
    upload it to your site — easiest is via FTP/File Manager into a new
    folder, e.g. `wp-content/uploads/hero/`.
 
-2. **Set the base URL.** Open `nurture-hero-loop.html` in a text editor
-   and replace every occurrence of `BASE_URL` with the full URL to that
-   folder, e.g.:
-
-   ```
-   https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero
-   ```
-
-   (Find & replace `BASE_URL` → that URL, no trailing slash.)
+2. **Base URL is already set.** `nurture-hero-loop.html` already points
+   every image/video/grain asset at
+   `https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero`
+   — so step 1 above must land the files at that exact path.
 
 3. **Paste it into the page.**
    - **Avada / Fusion Builder:** edit the page with Fusion Builder, add a
