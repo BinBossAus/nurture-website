@@ -2,16 +2,18 @@
   NURTURE HERO SCROLL LOOP — standalone WordPress/Avada embed
   =============================================================
   HOW TO USE (Avada / Fusion Builder):
-    1. Upload the whole "hero" folder of images/videos (close.mp4, close.jpg,
-       reach-wide.mp4, reach-wide.jpg, reach-portrait.mp4, source.jpg,
-       orchard.mp4, orchard.jpg, canopy.mp4, canopy.jpg, grain.png) to your
-       site, e.g. via an FTP/File Manager into wp-content/uploads/hero/.
-    2. Set https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero below to wherever that folder ends up
-       (e.g. "https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero").
-    3. In Fusion Builder, add a "Code" element (or in Gutenberg, a "Custom
+    1. All 11 media files (close.mp4, close.jpg, reach-wide.mp4,
+       reach-wide.jpg, reach-portrait.mp4, source.jpg, orchard.mp4,
+       orchard.jpg, canopy.mp4, canopy.jpg, grain.png) are already
+       uploaded to the WordPress Media Library and live at
+       https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/
+       — every URL below already points there. If WordPress ever
+       re-uploads these to a different month folder, re-run a find &
+       replace on that path.
+    2. In Fusion Builder, add a "Code" element (or in Gutenberg, a "Custom
        HTML" block) to the page/section where the hero should live, and
        paste this ENTIRE file's contents into it.
-    4. Make sure the element/section around it does NOT set
+    3. Make sure the element/section around it does NOT set
        overflow-x / overflow-y to hidden/auto/scroll on itself or any
        ancestor — that breaks the sticky pin (this is the exact bug that
        was fixed in the original app). If it still doesn't stick after
@@ -60,7 +62,7 @@
     #nurture-hero-loop .hero-grain {
       position: absolute; inset: -40%; width: 180%; height: 180%; pointer-events: none;
       opacity: 0.055; mix-blend-mode: overlay;
-      background-image: url("https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/grain.png");
+      background-image: url("https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/grain.png");
       background-size: 240px 240px;
       animation: nrt-hero-grain 0.48s steps(4) infinite;
     }
@@ -130,33 +132,33 @@
         <!-- shot 0: close -->
         <div class="hero-shot is-on" data-shot="close">
           <div class="hero-media" style="transform-origin:70% 48%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/close.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/close.jpg" muted loop playsinline autoplay preload="auto" style="object-position:70% 48%"></video>
+            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.jpg" muted loop playsinline autoplay preload="auto" style="object-position:70% 48%"></video>
           </div>
         </div>
         <!-- shot 1: reach -->
         <div class="hero-shot hero-has-portrait" data-shot="reach">
           <div class="hero-media" style="transform-origin:42% 62%">
-            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
-            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
+            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
+            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
           </div>
         </div>
         <!-- shot 2: orchard -->
         <div class="hero-shot" data-shot="orchard">
           <div class="hero-media" style="transform-origin:50% 72%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/orchard.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/orchard.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 78%"></video>
+            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 78%"></video>
           </div>
         </div>
         <!-- shot 3: canopy -->
         <div class="hero-shot" data-shot="canopy">
           <div class="hero-media" style="transform-origin:50% 45%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/canopy.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/canopy.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 48%"></video>
+            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 48%"></video>
           </div>
         </div>
         <!-- shot 4: home (reuses reach footage) -->
         <div class="hero-shot hero-has-portrait" data-shot="home">
           <div class="hero-media" style="transform-origin:42% 60%">
-            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
-            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
+            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
+            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
           </div>
         </div>
 

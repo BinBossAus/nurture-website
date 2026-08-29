@@ -9,24 +9,22 @@ all 5 stages render correctly in order, sticky-pinned for the full scroll.
 
 ## Steps
 
-1. **Upload the media files.** Take everything in the `hero/` folder next
-   to this README (5 videos + their poster images + `grain.png`) and
-   upload it to your site — easiest is via FTP/File Manager into a new
-   folder, e.g. `wp-content/uploads/hero/`.
+1. **Media is already uploaded.** All 11 files (5 videos + their poster
+   images + `grain.png`) were uploaded via the WordPress Media Library
+   and live at
+   `https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/`.
+   `nurture-hero-loop.html` already points every asset URL there — nothing
+   to change. (If WordPress ever re-uploads these into a different
+   year/month folder, do a find & replace on that path across the file.)
 
-2. **Base URL is already set.** `nurture-hero-loop.html` already points
-   every image/video/grain asset at
-   `https://www.nurtureparentingmagazine.com.au/wp-content/uploads/hero`
-   — so step 1 above must land the files at that exact path.
-
-3. **Paste it into the page.**
+2. **Paste it into the page.**
    - **Avada / Fusion Builder:** edit the page with Fusion Builder, add a
      **Code** element where the hero should appear, and paste the entire
      file's contents into it.
    - **Gutenberg:** add a **Custom HTML** block and paste the entire
      file's contents into it.
 
-4. **Publish and check it.** Scroll through the section. If the animation
+3. **Publish and check it.** Scroll through the section. If the animation
    plays the first scene but then goes blank/stops sticking instead of
    playing through all 5 scenes, the most likely cause is the exact bug
    that was fixed in the original app: some ancestor element (a Fusion
