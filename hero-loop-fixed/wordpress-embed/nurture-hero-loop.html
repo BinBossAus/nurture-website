@@ -1,109 +1,69 @@
 <!--
-  NURTURE HERO SCROLL LOOP — standalone WordPress/Avada embed
+  NURTURE HERO BACKGROUND LOOP — standalone WordPress/Avada embed
   =============================================================
+  This is a plain full-viewport background video container: no copy, no
+  navigation dots, no GSAP/ScrollTrigger. It plays four scenes back-to-back
+  as one continuous, silent, looping sequence (canopy -> close -> orchard ->
+  reach-wide -> back to canopy), cross-fading between them with a CSS
+  opacity transition driven by the video "ended" event.
+
   HOW TO USE (Avada / Fusion Builder):
-    1. All 11 media files (close.mp4, close.jpg, reach-wide.mp4,
-       reach-wide.jpg, reach-portrait.mp4, source.jpg, orchard.mp4,
-       orchard.jpg, canopy.mp4, canopy.jpg, grain.png) are already
-       uploaded to the WordPress Media Library and live at
+    1. All media files (canopy.mp4, close.mp4, orchard.mp4, reach-wide.mp4,
+       their poster images, and grain.png) are already uploaded to the
+       WordPress Media Library and live at
        https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/
-       — every URL below already points there. If WordPress ever
-       re-uploads these to a different month folder, re-run a find &
-       replace on that path.
+       — every URL below already points there. If WordPress ever re-uploads
+       these to a different month folder, re-run a find & replace on that
+       path.
     2. In Fusion Builder, add a "Code" element (or in Gutenberg, a "Custom
        HTML" block) to the page/section where the hero should live, and
        paste this ENTIRE file's contents into it.
-    3. Make sure the element/section around it does NOT set
-       overflow-x / overflow-y to hidden/auto/scroll on itself or any
-       ancestor — that breaks the sticky pin (this is the exact bug that
-       was fixed in the original app). If it still doesn't stick after
-       publishing, that's the first thing to check in the theme's wrapper.
+    3. This container is intentionally bare — build headings, subtext, and
+       any buttons/nav directly in Avada as elements layered on top of this
+       code block (e.g. in a Fusion Builder container with this code block
+       set as an absolutely-positioned/background layer).
   -->
 <div id="nurture-hero-loop">
   <style>
     #nurture-hero-loop {
-      --color-espresso: #3a2d28;
-      --color-ivory: #f6f1ea;
-      --color-rose: #e5c1b3;
+      width: 100vw;
+      height: 100vh;
       position: relative;
-      background: var(--color-espresso);
-      color: var(--color-ivory);
-    }
-    #nurture-hero-loop .hero-scroll {
-      position: relative;
-      height: 650vh;
-      background: var(--color-espresso);
-    }
-    #nurture-hero-loop .hero-stage {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      height: 100svh;
       overflow: hidden;
-      background: var(--color-espresso);
+      margin: 0;
+      padding: 0;
+      background-color: #3a2d28;
     }
-    #nurture-hero-loop .hero-shot {
+    #nurture-hero-loop video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #nurture-hero-loop video.is-active {
+      opacity: 1;
+    }
+    #nurture-hero-loop .hero-tint {
       position: absolute;
       inset: 0;
-      opacity: 0;
-    }
-    #nurture-hero-loop .hero-shot.is-on { opacity: 1; }
-    #nurture-hero-loop .hero-media { width: 100%; height: 100%; will-change: transform; }
-    #nurture-hero-loop .hero-video { display: block; width: 100%; height: 100%; object-fit: cover; }
-    #nurture-hero-loop .hero-video-portrait { display: none; }
-    @media (orientation: portrait) {
-      #nurture-hero-loop .hero-has-portrait > .hero-media > .hero-video-landscape { display: none; }
-      #nurture-hero-loop .hero-has-portrait > .hero-media > .hero-video-portrait { display: block; }
-    }
-    #nurture-hero-loop .hero-vignette {
-      position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 48%, transparent 46%, color-mix(in oklab, var(--color-espresso) 48%, transparent) 100%);
+      pointer-events: none;
+      background-color: rgba(58, 45, 40, 0.35);
     }
     #nurture-hero-loop .hero-grain {
-      position: absolute; inset: -40%; width: 180%; height: 180%; pointer-events: none;
-      opacity: 0.055; mix-blend-mode: overlay;
+      position: absolute;
+      inset: -40%;
+      width: 180%;
+      height: 180%;
+      pointer-events: none;
+      opacity: 0.055;
+      mix-blend-mode: overlay;
       background-image: url("https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/grain.png");
       background-size: 240px 240px;
       animation: nrt-hero-grain 0.48s steps(4) infinite;
-    }
-    #nurture-hero-loop .hero-progress {
-      position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
-      background: color-mix(in oklab, var(--color-rose) 22%, transparent);
-      pointer-events: none;
-    }
-    #nurture-hero-loop .hero-progress-fill {
-      display: block; height: 100%; width: 100%;
-      background: var(--color-rose);
-      transform-origin: 0 50%; transform: scaleX(0);
-    }
-    #nurture-hero-loop .hero-dots {
-      position: absolute; right: 1.25rem; top: 50%;
-      display: flex; flex-direction: column; gap: 0.7rem;
-      transform: translateY(-50%); pointer-events: none;
-    }
-    #nurture-hero-loop .hero-dot {
-      width: 5px; height: 5px; border-radius: 9999px;
-      background: color-mix(in oklab, var(--color-ivory) 32%, transparent);
-      transform: scale(0.85);
-      transition: background 250ms cubic-bezier(0.22, 1, 0.36, 1), transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    #nurture-hero-loop .hero-dot.is-active { background: var(--color-rose); transform: scale(1.15); }
-    #nurture-hero-loop .hero-hint {
-      position: absolute; left: 50%; bottom: 1.75rem;
-      display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
-      transform: translateX(-50%); pointer-events: none;
-    }
-    #nurture-hero-loop .hero-chevron {
-      width: 12px; height: 12px;
-      border-right: 1px solid color-mix(in oklab, var(--color-ivory) 55%, transparent);
-      border-bottom: 1px solid color-mix(in oklab, var(--color-ivory) 55%, transparent);
-      transform: rotate(45deg);
-      animation: nrt-hero-hint 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-    }
-    #nurture-hero-loop .hero-chevron:nth-child(2) { margin-top: -0.35rem; animation-delay: 0.18s; opacity: 0.55; }
-    #nurture-hero-loop .hero-mark {
-      position: absolute; left: 1.25rem; bottom: 1.5rem; width: 18px; height: 22px;
-      opacity: 0.55; pointer-events: none; color: var(--color-rose);
     }
     @keyframes nrt-hero-grain {
       0% { transform: translate(0, 0); }
@@ -112,214 +72,84 @@
       75% { transform: translate(-0.6%, -0.4%); }
       100% { transform: translate(0, 0); }
     }
-    @keyframes nrt-hero-hint {
-      0%, 100% { opacity: 0.2; translate: 0 0; }
-      40% { opacity: 0.8; translate: 0 5px; }
-    }
-    @media (max-width: 640px) {
-      #nurture-hero-loop .hero-dots { right: 0.85rem; }
-      #nurture-hero-loop .hero-mark { left: 0.9rem; bottom: 1.25rem; }
-    }
     @media (prefers-reduced-motion: reduce) {
-      #nurture-hero-loop .hero-grain, #nurture-hero-loop .hero-chevron { animation: none; }
+      #nurture-hero-loop .hero-grain { animation: none; }
     }
   </style>
 
-  <main class="relative" aria-label="Cinematic orchard sequence">
-    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Nurture</h1>
-    <div class="hero-scroll" id="nrt-scroll">
-      <div class="hero-stage">
-        <!-- shot 0: close -->
-        <div class="hero-shot is-on" data-shot="close">
-          <div class="hero-media" style="transform-origin:70% 48%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.jpg" muted loop playsinline autoplay preload="auto" style="object-position:70% 48%"></video>
-          </div>
-        </div>
-        <!-- shot 1: reach -->
-        <div class="hero-shot hero-has-portrait" data-shot="reach">
-          <div class="hero-media" style="transform-origin:42% 62%">
-            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
-            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
-          </div>
-        </div>
-        <!-- shot 2: orchard -->
-        <div class="hero-shot" data-shot="orchard">
-          <div class="hero-media" style="transform-origin:50% 72%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 78%"></video>
-          </div>
-        </div>
-        <!-- shot 3: canopy -->
-        <div class="hero-shot" data-shot="canopy">
-          <div class="hero-media" style="transform-origin:50% 45%">
-            <video class="hero-video" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 48%"></video>
-          </div>
-        </div>
-        <!-- shot 4: home (reuses reach footage) -->
-        <div class="hero-shot hero-has-portrait" data-shot="home">
-          <div class="hero-media" style="transform-origin:42% 60%">
-            <video class="hero-video hero-video-landscape" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.jpg" muted loop playsinline autoplay preload="auto" style="object-position:40% 58%"></video>
-            <video class="hero-video hero-video-portrait" src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-portrait.mp4" poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/source.jpg" muted loop playsinline autoplay preload="auto" style="object-position:50% 55%"></video>
-          </div>
-        </div>
+  <video
+    id="nrt-video-canopy"
+    class="is-active"
+    src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.mp4"
+    poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/canopy.jpg"
+    muted
+    playsinline
+    preload="auto"
+  ></video>
+  <video
+    id="nrt-video-close"
+    src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.mp4"
+    poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/close.jpg"
+    muted
+    playsinline
+    preload="auto"
+  ></video>
+  <video
+    id="nrt-video-orchard"
+    src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.mp4"
+    poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/orchard.jpg"
+    muted
+    playsinline
+    preload="auto"
+  ></video>
+  <video
+    id="nrt-video-reach"
+    src="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.mp4"
+    poster="https://www.nurtureparentingmagazine.com.au/wp-content/uploads/2026/08/reach-wide.jpg"
+    muted
+    playsinline
+    preload="auto"
+  ></video>
 
-        <div class="hero-vignette"></div>
-        <div class="hero-grain"></div>
-        <div class="hero-progress" aria-hidden="true"><span class="hero-progress-fill"></span></div>
-        <div class="hero-dots" aria-hidden="true">
-          <span data-dot="close" class="hero-dot is-active"></span>
-          <span data-dot="reach" class="hero-dot"></span>
-          <span data-dot="orchard" class="hero-dot"></span>
-          <span data-dot="canopy" class="hero-dot"></span>
-          <span data-dot="home" class="hero-dot"></span>
-        </div>
-        <div class="hero-hint" aria-hidden="true">
-          <span class="hero-chevron"></span>
-          <span class="hero-chevron"></span>
-        </div>
-        <svg class="hero-mark" viewBox="0 0 18 22" aria-hidden="true" fill="currentColor">
-          <path d="M9.1 1.2c.7 1.4.8 2.5.1 3.4C6.6 5.5 4.4 8.2 4.4 11.6c0 3 2 5.2 4.7 5.2s4.7-2.2 4.7-5.2c0-3.4-2.2-6.1-4.8-7-.7-.9-.6-2 .1-3.4Z"></path>
-          <path d="M9.3.6c.12 1.4 0 2.4-.5 3.2" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.7"></path>
-        </svg>
-      </div>
-    </div>
-  </main>
+  <div class="hero-tint" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 (function () {
   function init() {
     var root = document.getElementById("nurture-hero-loop");
-    var scroller = document.getElementById("nrt-scroll");
-    if (!root || !scroller || !window.gsap || !window.ScrollTrigger) return;
+    if (!root) return;
 
-    gsap.registerPlugin(ScrollTrigger);
+    // Playback order: canopy -> close -> orchard -> reach-wide -> loop back to canopy.
+    var ids = ["nrt-video-canopy", "nrt-video-close", "nrt-video-orchard", "nrt-video-reach"];
+    var videos = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    if (!videos.length) return;
 
-    var shots = Array.prototype.slice.call(root.querySelectorAll("[data-shot]"));
-    var medias = shots.map(function (s) { return s.querySelector(".hero-media"); });
-    var fill = root.querySelector(".hero-progress-fill");
-    var hint = root.querySelector(".hero-hint");
-    var dots = Array.prototype.slice.call(root.querySelectorAll("[data-dot]"));
-
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function setActive(index) {
-      dots.forEach(function (dot, i) {
-        dot.classList.toggle("is-active", i === index);
-      });
-    }
-
-    // Only decode/play the video(s) belonging to the currently on-screen shot
-    // (and only the landscape/portrait variant CSS is actually showing).
-    // Do NOT add any code elsewhere that force-plays every video on an
-    // interval — that overloads the browser and stalls scroll rendering.
-    function syncVideos() {
-      shots.forEach(function (shot) {
-        var opacity = parseFloat(window.getComputedStyle(shot).opacity);
-        var live = opacity > 0.05;
-        var videos = shot.querySelectorAll("video");
-        videos.forEach(function (video) {
-          var hidden = window.getComputedStyle(video).display === "none";
-          var shouldPlay = live && !hidden;
-          if (shouldPlay) {
-            if (video.paused) video.play().catch(function () {});
-          } else if (!video.paused) {
-            video.pause();
+    function showVideo(index) {
+      videos.forEach(function (video, i) {
+        if (i === index) {
+          video.classList.add("is-active");
+          try { video.currentTime = 0; } catch (e) {}
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {});
           }
-        });
-      });
-    }
-
-    if (reduce) {
-      gsap.set(shots, { opacity: 0 });
-      gsap.set(shots[1] || shots[0], { opacity: 1 });
-      gsap.set(medias, { scale: 1 });
-      setActive(1);
-      syncVideos();
-      window.addEventListener("pointerdown", syncVideos, { once: true });
-      return;
-    }
-
-    var tl = gsap.timeline({ paused: true, defaults: { ease: "none" } });
-    gsap.set(shots, { opacity: 0 });
-    gsap.set(shots[0], { opacity: 1 });
-    gsap.set(medias, { scale: 1 });
-    gsap.set(medias[0], { scale: 1.06 });
-
-    if (fill) tl.fromTo(fill, { scaleX: 0 }, { scaleX: 1, duration: 10 }, 0);
-    if (hint) tl.to(hint, { opacity: 0, duration: 0.4 }, 0.08);
-
-    // Stage 1 — brief macro of the hand
-    tl.to(medias[0], { scale: 1.02, duration: 0.9 }, 0);
-    // Stage 2 — complete girl from behind, reaching into the tree
-    tl.to(shots[0], { opacity: 0, duration: 0.55 }, 0.95);
-    tl.fromTo(shots[1], { opacity: 0 }, { opacity: 1, duration: 0.55 }, 0.95);
-    tl.fromTo(medias[1], { scale: 1.04 }, { scale: 1, duration: 0.55 }, 0.95);
-    tl.to(medias[1], { scale: 1, duration: 2.35 }, 1.5);
-    // Stage 3 — wider orchard
-    tl.to(shots[1], { opacity: 0, duration: 0.6 }, 3.7);
-    tl.fromTo(shots[2], { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.7);
-    tl.fromTo(medias[2], { scale: 1.08 }, { scale: 1, duration: 1.7 }, 3.7);
-    // Stage 4 — canopy
-    tl.to(shots[2], { opacity: 0, duration: 0.6 }, 5.4);
-    tl.fromTo(shots[3], { opacity: 0 }, { opacity: 1, duration: 0.6 }, 5.4);
-    tl.fromTo(medias[3], { scale: 1.1 }, { scale: 1, duration: 1.65 }, 5.4);
-    // Stage 5 — home, full girl again
-    tl.to(shots[3], { opacity: 0, duration: 0.6 }, 7.15);
-    tl.fromTo(shots[4], { opacity: 0 }, { opacity: 1, duration: 0.6 }, 7.15);
-    tl.fromTo(medias[4], { scale: 1.04 }, { scale: 1, duration: 2.25 }, 7.15);
-
-    function shotIndex(progress) {
-      if (progress >= 0.72) return 4;
-      if (progress >= 0.54) return 3;
-      if (progress >= 0.37) return 2;
-      if (progress >= 0.12) return 1;
-      return 0;
-    }
-
-    function apply(progress) {
-      var p = Math.max(0, Math.min(1, progress));
-      tl.progress(p);
-      setActive(shotIndex(p));
-      syncVideos();
-    }
-
-    apply(0);
-
-    var mode = "auto";
-    var stage2 = 0.28;
-    var introProxy = { p: 0 };
-    var intro = gsap.to(introProxy, {
-      p: stage2,
-      duration: 3.4,
-      delay: 1.35,
-      ease: "power1.inOut",
-      onUpdate: function () {
-        if (mode !== "auto") return;
-        apply(introProxy.p);
-      },
-    });
-
-    ScrollTrigger.create({
-      trigger: scroller,
-      start: "top top",
-      end: "bottom bottom",
-      invalidateOnRefresh: true,
-      onUpdate: function (self) {
-        if (self.progress > 0.012 || Math.abs(self.getVelocity()) > 40) {
-          if (mode !== "scroll") {
-            mode = "scroll";
-            intro.kill();
-          }
+        } else {
+          video.classList.remove("is-active");
+          if (!video.paused) video.pause();
         }
-        if (mode === "scroll") apply(self.progress);
-      },
+      });
+    }
+
+    videos.forEach(function (video, i) {
+      video.addEventListener("ended", function () {
+        var next = (i + 1) % videos.length;
+        showVideo(next);
+      });
     });
 
-    window.addEventListener("resize", function () { ScrollTrigger.refresh(); });
-    window.addEventListener("pointerdown", syncVideos, { once: true });
-    window.addEventListener("touchstart", syncVideos, { once: true, passive: true });
+    showVideo(0);
   }
 
   if (document.readyState === "complete" || document.readyState === "interactive") {
